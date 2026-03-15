@@ -7,11 +7,11 @@ export default function AboutPage() {
         {/* Executive Intro */}
         <section className="mb-32 text-center">
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8">
-            About <span className="text-blue-600">YourConsulting</span>
+            About <span className="text-blue-600">TechShieldAnalytics</span>
           </h1>
 
           <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6">
-            YourConsulting is a modern technology advisory firm specializing in
+            TechShieldAnalytics is a modern technology advisory firm specializing in
             cloud architecture, data engineering, advanced analytics and AI-driven systems.
           </p>
 

@@ -40,7 +40,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-semibold text-blue-600 tracking-tight"
         >
-          YourConsulting
+          TechShieldAnalytics
         </Link>
 
         {/* Desktop Navigation + Social + CTA */}

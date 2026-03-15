@@ -253,7 +253,7 @@ export default function Home() {
   <div className="max-w-5xl mx-auto text-center">
 
     <h2 className="text-4xl font-bold mb-8 tracking-tight">
-      Built by an Engineer. Focused on Outcomes.
+      Built by an Engineer , focused on Outcomes.
     </h2>
 
     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-16">

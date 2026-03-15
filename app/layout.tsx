@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "YourConsulting | Cloud, Data & AI Engineering",
-    template: "%s | YourConsulting",
+    default: "TechShieldAnalytics | Cloud, Data & AI Engineering",
+    template: "%s | TechShieldAnalytics",
   },
   description:
     "We architect scalable cloud infrastructure, modern data platforms and AI-driven systems for growing businesses.",
@@ -31,17 +31,17 @@ export const metadata: Metadata = {
     "Cloud Architecture",
   ],
   openGraph: {
-    title: "YourConsulting | Cloud, Data & AI Engineering",
+    title: "TechShieldAnalytics | Cloud, Data & AI Engineering",
     description:
       "Scalable cloud architecture, advanced data engineering and AI-powered systems for modern businesses.",
     url: "https://yourconsulting.vercel.app",
-    siteName: "YourConsulting",
+    siteName: "TechShieldAnalytics",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "YourConsulting | Cloud, Data & AI Engineering",
+    title: "TechShieldAnalytics | Cloud, Data & AI Engineering",
     description:
       "Scalable cloud architecture and AI-driven systems built for growth.",
   },
@@ -78,7 +78,7 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
             <div>
               <h3 className="text-white text-xl font-bold mb-4">
-                YourConsulting
+                TechShieldAnalytics
               </h3>
               <p className="text-gray-400 leading-relaxed">
                 Engineering scalable cloud, data and AI systems
@@ -149,7 +149,7 @@ export default function RootLayout({
           </div>
 
           <div className="border-t border-gray-800 mt-16 pt-6 text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} YourConsulting. All rights reserved.
+            © {new Date().getFullYear()} TechShieldAnalytics. All rights reserved.
           </div>
         </footer>
         <Script

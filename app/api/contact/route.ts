@@ -24,13 +24,13 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "onboarding@resend.dev",
       to: email,
-      subject: "Thank you for contacting YourConsulting",
+      subject: "Thank you for contacting TechShieldAnalytics",
       html: `
         <h2>Hi ${name},</h2>
         <p>Thank you for reaching out to us.</p>
         <p>We’ve received your message and will get back to you within 24 hours.</p>
         <br/>
-        <p>Best Regards,<br/>YourConsulting Team</p>
+        <p>Best Regards,<br/>TechShieldAnalytics Team</p>
       `,
     });
 

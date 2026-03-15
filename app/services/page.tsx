@@ -1,177 +1,249 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Cloud, Database, Brain, BarChart3 } from "lucide-react";
+
 export default function ServicesPage() {
   return (
-    <main className="bg-gray-50 text-gray-900">
+    <main className="relative overflow-hidden bg-gray-950 text-white">
 
-      <div className="max-w-6xl mx-auto px-6 py-28">
+      {/* Floating Gradient Background */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute w-[800px] h-[800px] bg-blue-600/20 blur-[160px] rounded-full -top-40 -left-40"></div>
+        <div className="absolute w-[700px] h-[700px] bg-purple-600/20 blur-[150px] rounded-full top-1/2 right-0"></div>
+      </div>
 
-        {/* Page Header */}
-        <section className="text-center mb-32">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8">
-            Our <span className="text-blue-600">Services</span>
+      <div className="relative max-w-7xl mx-auto px-6 py-28 space-y-40">
+
+        {/* HEADER */}
+        <section className="max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Platform <span className="text-blue-400">Capabilities</span>
           </h1>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We provide strategic cloud, data and AI solutions designed for
-            scalability, operational efficiency and measurable business impact.
+          <p className="text-gray-400 text-xl">
+            SkillMine provides enterprise-grade cloud, data and AI systems
+            designed to scale modern data platforms and intelligent
+            decision systems.
           </p>
         </section>
 
 
-        {/* Services Grid */}
-        <div className="space-y-32">
+        {/* CLOUD SECTION */}
+        <section className="grid lg:grid-cols-2 gap-20 items-center">
 
-          {/* Cloud */}
-          <section className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">
-                Cloud Architecture & Modernization
-              </h2>
+          {/* LEFT FEATURE GRID */}
+          <div className="grid grid-cols-2 gap-6">
 
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Enterprise-grade infrastructure design built for security,
-                performance and cost optimization across AWS and Google Cloud.
-              </p>
+            {[
+              "Cloud Migration",
+              "Infrastructure Design",
+              "Security Architecture",
+              "Cost Optimization"
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -6 }}
+                className="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10"
+              >
+                <Cloud className="text-blue-400 mb-4" size={28} />
+                <p className="text-gray-300">{item}</p>
+              </motion.div>
+            ))}
 
-              <ul className="space-y-3 text-gray-600">
-                <li>• Cloud migration strategy</li>
-                <li>• Infrastructure design & optimization</li>
-                <li>• Licensing & cost governance</li>
-                <li>• Security & compliance architecture</li>
-                <li>• Performance monitoring & tuning</li>
-              </ul>
+          </div>
+
+
+          {/* RIGHT VISUAL BOX */}
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            className="bg-gradient-to-br from-blue-600/30 to-purple-600/30 p-14 rounded-3xl border border-white/10 backdrop-blur-xl"
+          >
+            <h2 className="text-3xl font-semibold mb-6">
+              Cloud Architecture
+            </h2>
+
+            <p className="text-gray-300 leading-relaxed mb-8">
+              Modern cloud infrastructure designed for scalability,
+              reliability and enterprise-grade security across
+              AWS and Google Cloud environments.
+            </p>
+
+            <div className="h-[2px] bg-gradient-to-r from-blue-400 to-purple-400 w-24"></div>
+          </motion.div>
+
+        </section>
+
+
+        {/* DATA TIMELINE */}
+        <section className="grid lg:grid-cols-2 gap-24 items-center">
+
+          {/* TIMELINE */}
+          <div className="space-y-10">
+
+            {[
+              {
+                title: "Data Ingestion",
+                desc: "Collect and integrate structured and unstructured datasets."
+              },
+              {
+                title: "Data Transformation",
+                desc: "Process pipelines with SQL and Python engineering."
+              },
+              {
+                title: "Warehouse Architecture",
+                desc: "Design scalable BigQuery and data lake systems."
+              },
+              {
+                title: "Analytics & Reporting",
+                desc: "Deliver insights through BI and analytics platforms."
+              }
+            ].map((step, i) => (
+              <div key={i} className="flex gap-6">
+
+                <div className="w-3 h-3 bg-blue-400 rounded-full mt-2"></div>
+
+                <div>
+                  <h3 className="font-semibold mb-1">{step.title}</h3>
+                  <p className="text-gray-400 text-sm">{step.desc}</p>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+
+          {/* VISUAL BOX */}
+          <div className="bg-white/5 border border-white/10 p-14 rounded-3xl backdrop-blur-xl">
+            <Database size={40} className="text-blue-400 mb-6" />
+
+            <h2 className="text-3xl font-semibold mb-6">
+              Data Engineering Platform
+            </h2>
+
+            <p className="text-gray-400 leading-relaxed">
+              Build scalable analytics architecture with
+              modern data warehouses, automated pipelines
+              and governance frameworks.
+            </p>
+          </div>
+
+        </section>
+
+
+        {/* AI SECTION */}
+        <section className="grid lg:grid-cols-2 gap-24 items-center">
+
+          {/* LEFT BIG CARD */}
+          <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-white/10 rounded-3xl p-14 backdrop-blur-xl">
+
+            <Brain size={40} className="text-purple-400 mb-6" />
+
+            <h2 className="text-3xl font-semibold mb-6">
+              Artificial Intelligence
+            </h2>
+
+            <p className="text-gray-400 mb-8">
+              Intelligent systems that automate workflows,
+              optimize predictions and drive operational efficiency.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
+              <div>Predictive Modeling</div>
+              <div>ML Pipelines</div>
+              <div>AI Automation</div>
+              <div>Workflow Optimization</div>
             </div>
 
-            <div className="bg-white p-12 rounded-3xl border border-gray-100 shadow-sm">
-              <h3 className="font-semibold mb-4 text-blue-600">
-                Ideal For
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Organizations modernizing legacy systems,
-                migrating to scalable cloud environments or
-                optimizing infrastructure for long-term growth.
-              </p>
-            </div>
-          </section>
+          </div>
 
 
-          {/* Data */}
-          <section className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="bg-white p-12 rounded-3xl border border-gray-100 shadow-sm md:order-1 order-2">
-              <h3 className="font-semibold mb-4 text-blue-600">
-                Core Capabilities
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                BigQuery architecture, SQL & Python engineering,
-                scalable ETL pipelines and enterprise analytics frameworks.
-              </p>
-            </div>
+          {/* RIGHT FLOATING CARDS */}
+          <div className="space-y-6">
 
-            <div className="md:order-2 order-1">
-              <h2 className="text-3xl font-bold mb-6">
-                Data Engineering & Analytics
-              </h2>
+            {[
+              "Forecasting Models",
+              "Operational Automation",
+              "AI Workflow Systems"
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ x: 8 }}
+                className="bg-white/5 border border-white/10 p-6 rounded-xl"
+              >
+                {item}
+              </motion.div>
+            ))}
 
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Transform raw data into strategic intelligence through
-                scalable modeling, warehousing and advanced analytics systems.
-              </p>
+          </div>
 
-              <ul className="space-y-3 text-gray-600">
-                <li>• Data warehouse architecture (BigQuery)</li>
-                <li>• SQL & Python data engineering</li>
-                <li>• ETL / ELT pipeline design</li>
-                <li>• Advanced analytics & reporting</li>
-                <li>• Data governance frameworks</li>
-              </ul>
-            </div>
-          </section>
+        </section>
 
 
-          {/* AI */}
-          <section className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">
-                Artificial Intelligence & Automation
-              </h2>
+        {/* BI SECTION */}
+        <section className="grid lg:grid-cols-2 gap-20 items-center">
 
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Implement intelligent systems that automate processes,
-                enhance forecasting accuracy and unlock operational efficiency.
-              </p>
+          {/* FEATURE GRID */}
+          <div className="grid grid-cols-2 gap-6">
 
-              <ul className="space-y-3 text-gray-600">
-                <li>• Predictive modeling & ML pipelines</li>
-                <li>• AI-driven automation frameworks</li>
-                <li>• Workflow optimization</li>
-                <li>• Applied AI solutions</li>
-                <li>• Intelligent system architecture</li>
-              </ul>
-            </div>
+            {[
+              "Looker Implementation",
+              "Power BI Dashboards",
+              "Alteryx Automation",
+              "BI Migration"
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -5 }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6"
+              >
+                <BarChart3 className="text-blue-400 mb-3" />
+                {item}
+              </motion.div>
+            ))}
 
-            <div className="bg-white p-12 rounded-3xl border border-gray-100 shadow-sm">
-              <h3 className="font-semibold mb-4 text-blue-600">
-                Business Impact
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Increase efficiency, reduce operational overhead
-                and create data-driven competitive advantage.
-              </p>
-            </div>
-          </section>
+          </div>
 
 
-          {/* BI */}
-          <section className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="bg-white p-12 rounded-3xl border border-gray-100 shadow-sm md:order-1 order-2">
-              <h3 className="font-semibold mb-4 text-blue-600">
-                Platforms & Tools
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Looker, Power BI, Alteryx and seamless BI
-                ecosystem migration with governance and scalability.
-              </p>
-            </div>
+          {/* VISUAL BOX */}
+          <div className="bg-gradient-to-br from-blue-600/20 to-indigo-600/20 p-14 rounded-3xl border border-white/10 backdrop-blur-xl">
 
-            <div className="md:order-2 order-1">
-              <h2 className="text-3xl font-bold mb-6">
-                Business Intelligence & Tool Migration
-              </h2>
+            <h2 className="text-3xl font-semibold mb-6">
+              Business Intelligence
+            </h2>
 
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Executive-ready dashboards and analytics platforms
-                that provide real-time clarity for leadership teams.
-              </p>
+            <p className="text-gray-400 leading-relaxed">
+              Executive dashboards and analytics ecosystems
+              that transform data into real-time strategic insights.
+            </p>
 
-              <ul className="space-y-3 text-gray-600">
-                <li>• BI dashboard implementation</li>
-                <li>• Looker & Power BI deployment</li>
-                <li>• Alteryx automation workflows</li>
-                <li>• BI tool migration strategy</li>
-                <li>• Data visualization architecture</li>
-              </ul>
-            </div>
-          </section>
+          </div>
 
-        </div>
+        </section>
 
 
         {/* CTA */}
-        <section className="mt-36 text-center bg-white p-16 rounded-3xl border border-gray-100 shadow-sm">
-          <h3 className="text-3xl font-bold mb-6">
-            Let’s Build Scalable Systems Together
-          </h3>
+        <section className="text-center">
 
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            From cloud architecture to AI-driven automation,
-            we design technology systems that power long-term growth.
-          </p>
+          <div className="bg-gradient-to-r from-blue-600/30 to-purple-600/30 border border-white/10 p-20 rounded-3xl backdrop-blur-xl">
 
-          <a
-            href="/contact"
-            className="bg-blue-600 text-white px-10 py-4 rounded-xl font-semibold hover:bg-blue-700 transition"
-          >
-            Schedule a Consultation
-          </a>
+            <h3 className="text-3xl font-semibold mb-6">
+              Build Intelligent Systems
+            </h3>
+
+            <p className="text-gray-400 max-w-2xl mx-auto mb-10">
+              From cloud architecture to AI-driven platforms,
+              SkillMine helps organizations design modern
+              technology ecosystems.
+            </p>
+
+            <button className="bg-blue-500 hover:bg-blue-600 transition px-10 py-4 rounded-xl font-semibold">
+              Schedule Consultation
+            </button>
+
+          </div>
+
         </section>
 
       </div>
