@@ -99,7 +99,7 @@ hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
 
             <div className="mt-12 bg-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10">
               <p className="text-gray-300 leading-relaxed">
-                Prefer direct communication?
+                Prefer direct communication with us?
               </p>
 
               <a
