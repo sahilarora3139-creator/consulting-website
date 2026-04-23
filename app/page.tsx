@@ -310,10 +310,10 @@ export default function Home() {
   <div className="max-w-6xl mx-auto text-center">
 
     <h2 className="text-4xl font-bold mb-6 tracking-tight">
-      What <span className="text-blue-600">Clients Value</span>
+      What <span className="text-blue-400">Clients Value</span>
     </h2>
 
-    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-20">
+    <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-20">
       Trusted by technology leaders to deliver scalable architecture,
       modern data platforms and intelligent systems.
     </p>
@@ -321,43 +321,43 @@ export default function Home() {
     <div className="grid md:grid-cols-3 gap-12">
 
       {/* Testimonial 1 */}
-      <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <p className="text-gray-500 leading-relaxed mb-8 text-lg">
+      <div className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
+        <p className="text-gray-300 leading-relaxed mb-8 text-lg">
           “Delivered a scalable cloud architecture that improved system
           performance by over 30% while reducing infrastructure costs.
           The execution was structured, precise and forward-looking.”
         </p>
 
-        <div className="text-sm text-gray-500">
-          CTO <span className="text-gray-400">• SaaS Company</span>
+        <div className="text-sm text-gray-400">
+          CTO <span className="text-gray-500">• SaaS Company</span>
         </div>
       </div>
 
 
       {/* Testimonial 2 */}
-      <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <p className="text-gray-500 leading-relaxed mb-8 text-lg">
+      <div className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
+        <p className="text-gray-300 leading-relaxed mb-8 text-lg">
           “Strong technical leadership combined with clear business
           understanding. Modernized our data platform and significantly
           improved reporting reliability.”
         </p>
 
-        <div className="text-sm text-gray-500">
-          Head of Engineering <span className="text-gray-400">• FinTech</span>
+        <div className="text-sm text-gray-400">
+          Head of Engineering <span className="text-gray-500">• FinTech</span>
         </div>
       </div>
 
 
       {/* Testimonial 3 */}
-      <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <p className="text-gray-500 leading-relaxed mb-8 text-lg">
+      <div className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
+        <p className="text-gray-300 leading-relaxed mb-8 text-lg">
           “Professional execution, clean architecture and long-term
           scalability thinking. The solutions were designed for growth,
           not short-term fixes.”
         </p>
 
-        <div className="text-sm text-gray-500">
-          Product Director <span className="text-gray-400">• E-Commerce Platform</span>
+        <div className="text-sm text-gray-400">
+          Product Director <span className="text-gray-500">• E-Commerce Platform</span>
         </div>
       </div>
 
@@ -385,22 +385,22 @@ export default function Home() {
 
 
     {/* Featured Case Study */}
-    <div className="bg-white p-16 rounded-3xl border border-gray-100 shadow-sm mb-24">
+    <div className="bg-white/5 p-16 rounded-3xl border border-white/10 backdrop-blur-xl mb-24">
       <div className="grid md:grid-cols-2 gap-16 items-center">
 
         <div>
-          <h3 className="text-2xl font-bold mb-6">
+          <h3 className="text-2xl font-bold text-white mb-6">
             Cloud Modernization for a Growing SaaS Platform
           </h3>
 
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-gray-400 leading-relaxed mb-6">
             A rapidly scaling SaaS company faced infrastructure instability
             and rising cloud costs. We redesigned their cloud architecture,
             implemented cost governance controls and introduced performance
             monitoring frameworks.
           </p>
 
-          <ul className="space-y-3 text-gray-600">
+          <ul className="space-y-3 text-gray-400">
             <li>• 30% reduction in infrastructure cost</li>
             <li>• 40% improvement in system performance</li>
             <li>• Scalable cloud-native architecture</li>
@@ -408,7 +408,7 @@ export default function Home() {
         </div>
 
         <div className="bg-white/5 p-10 rounded-2xl border border-white/10">
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray3-300 text-lg leading-relaxed mb-6">
             “The engagement transformed our infrastructure from reactive
             to scalable. We now have predictable costs and performance
             aligned with our growth.”
@@ -427,17 +427,17 @@ export default function Home() {
     <div className="grid md:grid-cols-2 gap-12">
 
       {/* Snapshot 1 */}
-      <div className="bg-white p-12 rounded-3xl border border-gray-100 shadow-sm">
-        <h4 className="text-xl font-semibold mb-4">
+      <div className="bg-white/5 p-12 rounded-3xl border border-white/10 backdrop-blur-xl">
+        <h4 className="text-xl font-semibold text-white mb-4">
           Data Platform Modernization — FinTech
         </h4>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-gray-400 leading-relaxed mb-6">
           Re-architected BigQuery data warehouse and built scalable
           ETL pipelines enabling real-time executive reporting.
         </p>
 
-        <ul className="space-y-2 text-gray-600 text-sm">
+        <ul className="space-y-2 text-gray-400 text-sm">
           <li>• Reduced reporting latency by 50%</li>
           <li>• Improved data reliability & governance</li>
           <li>• Executive dashboard transformation</li>
@@ -446,17 +446,17 @@ export default function Home() {
 
 
       {/* Snapshot 2 */}
-      <div className="bg-white p-12 rounded-3xl border border-gray-100 shadow-sm">
-        <h4 className="text-xl font-semibold mb-4">
+      <div className="bg-white/5 p-12 rounded-3xl border border-white/10 backdrop-blur-xl">
+        <h4 className="text-xl font-semibold text-white mb-4">
           AI-Driven Process Automation — E-Commerce
         </h4>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-gray-400 leading-relaxed mb-6">
           Implemented predictive modeling and workflow automation
           to optimize operational decision-making.
         </p>
 
-        <ul className="space-y-2 text-gray-600 text-sm">
+        <ul className="space-y-2 text-gray-400 text-sm">
           <li>• 25% improvement in forecasting accuracy</li>
           <li>• Reduced manual workload across teams</li>
           <li>• Automated operational insights</li>
