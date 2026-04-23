@@ -4,23 +4,29 @@ import TechStrip from "./components/TechStrip";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900">
+    <main className="relative overflow-hidden bg-gray-950 text-white min-h-screen">
+
+  {/* Background Glow */}
+  <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+    <div className="absolute w-[800px] h-[800px] bg-blue-600/20 blur-[160px] rounded-full -top-40 -left-40"></div>
+    <div className="absolute w-[700px] h-[700px] bg-purple-600/20 blur-[150px] rounded-full top-1/2 right-0"></div>
+  </div>
 
       {/* HERO */}
       <FadeIn>
-        <section className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-36 px-6">
+        <section className="relative overflow-hidden bg-transparent py-36 px-6">
           <div className="max-w-5xl mx-auto text-center">
 
-            <div className="mb-6 inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium">
+            <div className="mb-6 inline-block bg-white/10 text-blue-400 border border-white/10 backdrop-blur px-4 py-1 rounded-full text-sm font-medium">
               Cloud • Data • AI Consulting
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-8 tracking-tight">
               Engineering Intelligent Systems for
-              <span className="text-blue-600"> Scalable Growth</span>
+              <span className="text-blue-400"> Scalable Growth</span>
             </h1>
 
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
               We partner with startups and enterprises to design,
               modernize and scale cloud-native architectures,
               data platforms and AI-driven solutions.
@@ -32,14 +38,14 @@ export default function Home() {
   <div className="flex justify-center gap-6 flex-wrap">
     <a
       href="/contact"
-      className="btn-premium bg-blue-600 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 shadow-lg transition"
+      className="btn-premium bg-blue-500 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
     >
       Schedule a 30-Minute Strategy Call
     </a>
 
     <a
       href="/services"
-      className="border border-gray-300 px-10 py-4 rounded-xl text-lg hover:bg-gray-100 transition"
+      className="border border-white/20 px-10 py-4 rounded-xl text-lg text-gray-300 hover:bg-white/10 transition"
     >
       Explore Services
     </a>
@@ -58,12 +64,12 @@ export default function Home() {
 
 
       {/* SERVICES */}
-      <section className="py-28 px-6 bg-gray-50">
+      <section className="py-28 px-6 bg-transparent">
         <div className="max-w-6xl mx-auto">
 
           <FadeIn>
             <h2 className="text-4xl font-bold text-center mb-16 tracking-tight">
-              Our <span className="text-blue-600">Expertise</span>
+              Our <span className="text-blue-400">Expertise</span>
             </h2>
           </FadeIn>
 
@@ -86,8 +92,8 @@ export default function Home() {
               }
             ].map((service, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-lg mb-6 text-xl">
+                <div className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-lg mb-6 text-xl">
                     {service.icon}
                   </div>
 
@@ -95,13 +101,13 @@ export default function Home() {
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-400 leading-relaxed mb-6">
                     {service.desc}
                   </p>
 
                   <a
                     href="/services"
-                    className="text-blue-600 font-medium hover:underline"
+                    className="text-blue-400 font-medium hover:underline"
                   >
                     Learn More →
                   </a>
@@ -113,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK */}
-<section className="py-32 px-6 bg-white border-t border-gray-100">
+<section className="py-32 px-6 bg-transparent border-t border-white/10">
   <div className="max-w-6xl mx-auto">
 
     {/* Section Header */}
@@ -122,7 +128,7 @@ export default function Home() {
         How We <span className="text-blue-600">Deliver Results</span>
       </h2>
 
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p className="text-lg text-gray-400 max-w-2xl mx-auto">
         A structured, engineering-first approach designed to reduce risk,
         accelerate execution and build systems that scale.
       </p>
@@ -132,8 +138,8 @@ export default function Home() {
     <div className="grid md:grid-cols-3 gap-12">
 
       {/* Step 1 */}
-      <div className="bg-gray-50 p-12 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <div className="text-5xl font-bold text-blue-600 mb-6">
+      <div className="bg-white/5 p-12 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
+        <div className="text-5xl font-bold text-blue-400 mb-6">
           01
         </div>
 
@@ -141,13 +147,13 @@ export default function Home() {
           Assess & Architect
         </h3>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-gray-400 leading-relaxed mb-6">
           We evaluate your current infrastructure, data workflows and
           system bottlenecks to design a future-ready architecture aligned
           with your business objectives.
         </p>
 
-        <ul className="space-y-2 text-gray-600 text-sm">
+        <ul className="space-y-2 text-gray-400 text-sm">
           <li>• Cloud & infrastructure audit</li>
           <li>• Data platform review</li>
           <li>• Cost & performance analysis</li>
@@ -156,8 +162,8 @@ export default function Home() {
       </div>
 
       {/* Step 2 */}
-      <div className="bg-gray-50 p-12 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <div className="text-5xl font-bold text-blue-600 mb-6">
+      <div className="bg-white/5 p-12 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
+        <div className="text-5xl font-bold text-blue-400 mb-6">
           02
         </div>
 
@@ -165,13 +171,13 @@ export default function Home() {
           Design & Build
         </h3>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-gray-400 leading-relaxed mb-6">
           We implement scalable cloud-native systems, modern data pipelines
           and AI-driven automation designed for performance, reliability
           and long-term flexibility.
         </p>
 
-        <ul className="space-y-2 text-gray-600 text-sm">
+        <ul className="space-y-2 text-gray-400 text-sm">
           <li>• Cloud-native architecture</li>
           <li>• Modern data engineering</li>
           <li>• AI & ML integration</li>
@@ -180,8 +186,8 @@ export default function Home() {
       </div>
 
       {/* Step 3 */}
-      <div className="bg-gray-50 p-12 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <div className="text-5xl font-bold text-blue-600 mb-6">
+      <div className="bg-white/5 p-12 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
+        <div className="text-5xl font-bold text-blue-400 mb-6">
           03
         </div>
 
@@ -189,13 +195,13 @@ export default function Home() {
           Optimize & Scale
         </h3>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-gray-400 leading-relaxed mb-6">
           We continuously monitor, optimize and refine systems to ensure
           predictable performance, cost control and sustained scalability
           as your business grows.
         </p>
 
-        <ul className="space-y-2 text-gray-600 text-sm">
+        <ul className="space-y-2 text-gray-400 text-sm">
           <li>• Performance tuning</li>
           <li>• Cost governance</li>
           <li>• Security hardening</li>
@@ -209,7 +215,7 @@ export default function Home() {
 </section>
 
       {/* WHY US */}
-      <section className="py-28 px-6 bg-white border-t border-gray-100">
+      <section className="py-28 px-6 bg-transparent border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
 
           <FadeIn>
@@ -238,7 +244,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -249,7 +255,7 @@ export default function Home() {
       </section>
 
 {/* FOUNDER CREDIBILITY */}
-<section className="py-32 px-6 bg-gray-50 border-t border-gray-100">
+<section className="py-32 px-6 bg-transparent border-t border-white/10">
   <div className="max-w-5xl mx-auto text-center">
 
     <h2 className="text-4xl font-bold mb-8 tracking-tight">
@@ -264,8 +270,8 @@ export default function Home() {
 
     <div className="grid md:grid-cols-3 gap-10 text-left">
 
-      <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-        <h3 className="font-semibold mb-3 text-blue-600">
+      <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
+        <h3 className="font-semibold mb-3 text-blue-400">
           10+ Years Engineering Experience
         </h3>
         <p className="text-gray-600 text-sm leading-relaxed">
@@ -274,8 +280,8 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-        <h3 className="font-semibold mb-3 text-blue-600">
+      <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
+        <h3 className="font-semibold mb-3 text-blue-400">
           Multi-Industry Exposure
         </h3>
         <p className="text-gray-600 text-sm leading-relaxed">
@@ -284,8 +290,8 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-        <h3 className="font-semibold mb-3 text-blue-600">
+      <div className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
+        <h3 className="font-semibold mb-3 text-blue-400">
           Architecture-First Approach
         </h3>
         <p className="text-gray-600 text-sm leading-relaxed">
@@ -300,7 +306,7 @@ export default function Home() {
 </section>
    
 {/* TESTIMONIALS */}
-<section className="py-32 px-6 bg-white border-t border-gray-100">
+<section className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition">
   <div className="max-w-6xl mx-auto text-center">
 
     <h2 className="text-4xl font-bold mb-6 tracking-tight">
@@ -316,7 +322,7 @@ export default function Home() {
 
       {/* Testimonial 1 */}
       <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+        <p className="text-gray-500 leading-relaxed mb-8 text-lg">
           “Delivered a scalable cloud architecture that improved system
           performance by over 30% while reducing infrastructure costs.
           The execution was structured, precise and forward-looking.”
@@ -330,7 +336,7 @@ export default function Home() {
 
       {/* Testimonial 2 */}
       <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+        <p className="text-gray-500 leading-relaxed mb-8 text-lg">
           “Strong technical leadership combined with clear business
           understanding. Modernized our data platform and significantly
           improved reporting reliability.”
@@ -344,7 +350,7 @@ export default function Home() {
 
       {/* Testimonial 3 */}
       <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-        <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+        <p className="text-gray-500 leading-relaxed mb-8 text-lg">
           “Professional execution, clean architecture and long-term
           scalability thinking. The solutions were designed for growth,
           not short-term fixes.”
@@ -362,7 +368,7 @@ export default function Home() {
 
 
 {/* CASE STUDIES */}
-<section className="py-32 px-6 bg-gray-50 border-t border-gray-100">
+<section className="bg-white/5 p-16 rounded-3xl border border-white/10 backdrop-blur-xl mb-24">
   <div className="max-w-6xl mx-auto">
 
     {/* Section Header */}
@@ -401,7 +407,7 @@ export default function Home() {
           </ul>
         </div>
 
-        <div className="bg-gray-50 p-10 rounded-2xl border border-gray-100">
+        <div className="bg-white/5 p-10 rounded-2xl border border-white/10">
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
             “The engagement transformed our infrastructure from reactive
             to scalable. We now have predictable costs and performance
@@ -463,7 +469,7 @@ export default function Home() {
 </section>
 
 {/* IMPACT SECTION */}
-<section className="py-28 px-6 bg-gray-50 border-t border-gray-100">
+<section className="py-28 px-6 bg-transparent border-t border-white/10">
   <div className="max-w-6xl mx-auto text-center">
 
     <h2 className="text-4xl font-bold mb-6 tracking-tight">
@@ -485,7 +491,7 @@ export default function Home() {
       ].map((item, index) => (
         <div
           key={index}
-          className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300"
+          className="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-xl hover:shadow-lg transition duration-300"
         >
           <h3 className="text-4xl font-bold text-blue-600 mb-3">
           <Counter value={item.value} suffix={item.suffix} />
@@ -502,7 +508,7 @@ export default function Home() {
 </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white text-center py-24 px-6">
+      <section className="bg-gradient-to-r from-blue-600/30 to-purple-600/30 border border-white/10 backdrop-blur-xl text-white text-center py-24 px-6">
         <div className="max-w-4xl mx-auto">
 <h2 className="text-4xl font-bold mb-6 tracking-tight">
   Schedule a 30-Minute Architecture Strategy Call
@@ -519,7 +525,7 @@ export default function Home() {
 
 <a
   href="/contact"
-  className="btn-premium bg-white text-blue-600 px-10 py-4 rounded-xl font-semibold hover:bg-gray-100 shadow-lg"
+  className="btn-premium bg-blue-500 text-white px-10 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 hover:scale-105"
 >
   Book Your Strategy Call
 </a>
