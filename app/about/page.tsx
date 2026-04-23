@@ -1,182 +1,211 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Cloud, Database, Brain, BarChart3 } from "lucide-react";
+import Link from "next/link";
+
 export default function AboutPage() {
   return (
-    <main className="bg-gray-50 text-gray-900">
+    <main className="relative overflow-hidden bg-gray-950 text-white">
 
-      <div className="max-w-6xl mx-auto px-6 py-28">
+      {/* 🌌 Background Glow (same as services) */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute w-[800px] h-[800px] bg-blue-600/20 blur-[160px] rounded-full -top-40 -left-40"></div>
+        <div className="absolute w-[700px] h-[700px] bg-purple-600/20 blur-[150px] rounded-full top-1/2 right-0"></div>
+      </div>
 
-        {/* Executive Intro */}
-        <section className="mb-32 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8">
-            About <span className="text-blue-600">TechShieldAnalytics</span>
+      <div className="relative max-w-7xl mx-auto px-6 py-28 space-y-40">
+
+        {/* 🔷 HERO */}
+        <section className="max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            About <span className="text-blue-400">TechShieldAnalytics</span>
           </h1>
 
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6">
-            TechShieldAnalytics is a modern technology advisory firm specializing in
-            cloud architecture, data engineering, advanced analytics and AI-driven systems.
+          <p className="text-gray-400 text-xl mb-6">
+            A modern technology advisory firm delivering scalable cloud,
+            data and AI systems for enterprise transformation.
           </p>
 
-          <p className="text-lg text-gray-500 leading-relaxed max-w-3xl mx-auto">
-            We partner with ambitious organizations to design scalable,
-            secure and performance-focused technology foundations that drive
-            measurable operational and financial impact.
+          <p className="text-gray-500 text-lg">
+            We partner with organizations to design high-performance
+            technology foundations that enable long-term growth,
+            operational efficiency and intelligent decision-making.
           </p>
         </section>
 
 
-        {/* What We Do */}
-        <section className="mb-32">
-          <h2 className="text-3xl font-bold mb-14 text-center">
-            What We Do
-          </h2>
+        {/* 🔷 WHAT WE DO (glass cards like services grid) */}
+        <section className="grid md:grid-cols-2 gap-10">
 
-          <div className="grid md:grid-cols-2 gap-12">
+          {[
+            {
+              title: "Cloud Architecture",
+              desc: "Design and optimize secure, scalable infrastructure across AWS and Google Cloud.",
+              icon: <Cloud className="text-blue-400 mb-4" />
+            },
+            {
+              title: "Data Engineering",
+              desc: "Build modern data platforms, pipelines and analytics systems for real-time insights.",
+              icon: <Database className="text-blue-400 mb-4" />
+            },
+            {
+              title: "Artificial Intelligence",
+              desc: "Develop predictive systems, automation workflows and AI-driven decision engines.",
+              icon: <Brain className="text-purple-400 mb-4" />
+            },
+            {
+              title: "Business Intelligence",
+              desc: "Deliver dashboards, reporting ecosystems and BI platform migrations.",
+              icon: <BarChart3 className="text-blue-400 mb-4" />
+            }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -6 }}
+              className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-2xl"
+            >
+              {item.icon}
+              <h3 className="text-xl font-semibold mb-3">
+                {item.title}
+              </h3>
+              <p className="text-gray-400">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
 
-            {[
-              {
-                title: "Cloud Architecture & Modernization",
-                desc: "Enterprise-grade cloud design, infrastructure optimization, migration strategies and security frameworks across AWS and Google Cloud."
-              },
-              {
-                title: "Data Engineering & Advanced Analytics",
-                desc: "Scalable data platforms, modeling frameworks, BigQuery architecture and real-time analytics systems enabling informed decision-making."
-              },
-              {
-                title: "Artificial Intelligence & Automation",
-                desc: "Machine learning systems, predictive modeling, workflow automation and AI-driven operational intelligence."
-              },
-              {
-                title: "Business Intelligence & Platform Migration",
-                desc: "Looker, Power BI, Alteryx implementations and seamless migration across BI ecosystems with governance and scalability."
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition duration-300"
-              >
-                <h3 className="text-xl font-semibold mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-
-          </div>
         </section>
 
 
-        {/* Technology Capabilities */}
-        <section className="mb-32">
-          <h2 className="text-3xl font-bold mb-14 text-center">
-            Technology Expertise
-          </h2>
+        {/* 🔷 EXPERTISE (structured blocks instead of plain grid) */}
+        <section className="grid lg:grid-cols-2 gap-24 items-center">
 
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* LEFT */}
+          <div className="space-y-10">
 
             {[
               {
                 title: "Cloud Platforms",
-                items: "AWS • Google Cloud • BigQuery • Cost Optimization"
+                desc: "AWS, Google Cloud, infrastructure scaling and cost optimization."
               },
               {
-                title: "Data & Engineering",
-                items: "SQL • Python • ETL Pipelines • Data Modeling • Analytics Architecture"
+                title: "Data Systems",
+                desc: "SQL, Python pipelines, ETL workflows and data modeling."
               },
               {
-                title: "Business Intelligence",
-                items: "Looker • Power BI • Alteryx • BI Tool Migration"
+                title: "Analytics & BI",
+                desc: "Looker, Power BI, Alteryx and enterprise reporting systems."
               },
               {
-                title: "Automation & Optimization",
-                items: "Workflow Automation • Process Optimization • System Integration"
-              },
-              {
-                title: "AI & Machine Learning",
-                items: "Predictive Modeling • AI Systems • ML Pipelines"
-              },
-              {
-                title: "Strategic Advisory",
-                items: "Licensing Strategy • Audit Analytics • Cloud Governance"
+                title: "AI & Automation",
+                desc: "Machine learning pipelines and intelligent workflow systems."
               }
-            ].map((tech, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition"
-              >
-                <p className="font-semibold mb-3">
-                  {tech.title}
-                </p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {tech.items}
-                </p>
+            ].map((item, i) => (
+              <div key={i} className="flex gap-6">
+                <div className="w-3 h-3 bg-blue-400 rounded-full mt-2"></div>
+                <div>
+                  <h3 className="font-semibold mb-1">{item.title}</h3>
+                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                </div>
               </div>
             ))}
 
           </div>
+
+          {/* RIGHT */}
+          <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-white/10 p-14 rounded-3xl backdrop-blur-xl">
+            <h2 className="text-3xl font-semibold mb-6">
+              Technology Expertise
+            </h2>
+
+            <p className="text-gray-400 leading-relaxed">
+              Our expertise spans across cloud infrastructure, modern data
+              platforms and AI-driven systems — enabling organizations to
+              operate with scalability, speed and intelligence.
+            </p>
+          </div>
+
         </section>
 
 
-        {/* Our Approach */}
-        <section className="mb-32 bg-white p-16 rounded-3xl border border-gray-100 shadow-sm">
-          <h2 className="text-3xl font-bold mb-8 text-center">
+        {/* 🔷 APPROACH */}
+        <section className="bg-white/5 border border-white/10 p-16 rounded-3xl backdrop-blur-xl text-center">
+
+          <h2 className="text-3xl font-semibold mb-8">
             Our Approach
           </h2>
 
-          <div className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed text-center">
-            <p className="mb-6">
-              Successful technology transformation begins with clarity.
-              Every engagement starts with a deep understanding of business
-              objectives, system constraints and long-term growth strategy.
-            </p>
-
-            <p>
-              From advisory to execution, we prioritize architectural integrity,
-              scalability and measurable business outcomes.
-            </p>
-          </div>
-        </section>
-
-
-        {/* Founder Perspective */}
-        <section className="mb-32 text-center">
-          <h2 className="text-3xl font-bold mb-8">
-            Founder Perspective
-          </h2>
-
-          <div className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
-            <p className="mb-6">
-              With over 10+ years of hands-on experience in cloud engineering,
-              data platforms and analytics transformation, we bring execution
-              excellence combined with strategic foresight.
-            </p>
-
-            <p>
-              Every engagement is built around scalability, clarity and
-              long-term architectural integrity — ensuring technology becomes
-              a growth multiplier, not a constraint.
-            </p>
-          </div>
-        </section>
-
-
-        {/* Premium CTA */}
-        <section className="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white p-16 rounded-3xl shadow-lg">
-          <h3 className="text-3xl font-bold mb-6">
-            Let’s Build Intelligent Systems Together
-          </h3>
-
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-            Whether modernizing infrastructure, building data platforms or
-            implementing AI systems — we deliver scalable, future-ready solutions.
+          <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed mb-6">
+            Every transformation begins with clarity. We deeply understand
+            business objectives, system constraints and long-term vision
+            before designing any architecture.
           </p>
 
-          <a
-            href="/contact"
-            className="bg-white text-blue-700 px-10 py-4 rounded-xl font-semibold hover:bg-gray-100 transition"
-          >
-            Schedule a Consultation
-          </a>
+          <p className="text-gray-500 max-w-3xl mx-auto">
+            From advisory to execution, we focus on scalability,
+            performance and measurable outcomes — ensuring technology
+            becomes a growth driver.
+          </p>
+
+        </section>
+
+
+        {/* 🔷 FOUNDER SECTION (premium highlight) */}
+        <section className="grid lg:grid-cols-2 gap-20 items-center">
+
+          <div>
+            <h2 className="text-3xl font-semibold mb-6">
+              Founder Perspective
+            </h2>
+
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              With 10+ years of experience in cloud engineering, data platforms
+              and analytics transformation, we bring both execution depth and
+              strategic clarity.
+            </p>
+
+            <p className="text-gray-500 leading-relaxed">
+              Every solution is designed with long-term scalability,
+              architectural integrity and real-world business impact.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-white/10 p-14 rounded-3xl backdrop-blur-xl">
+            <p className="text-gray-300 text-lg">
+              "Technology should not just support business —
+              it should accelerate it."
+            </p>
+          </div>
+
+        </section>
+
+
+        {/* 🔷 CTA */}
+        <section className="text-center">
+
+          <div className="bg-gradient-to-r from-blue-600/30 to-purple-600/30 border border-white/10 p-20 rounded-3xl backdrop-blur-xl">
+
+            <h3 className="text-3xl font-semibold mb-6">
+              Build Intelligent Systems
+            </h3>
+
+            <p className="text-gray-400 max-w-2xl mx-auto mb-10">
+              From cloud architecture to AI-driven platforms,
+              we design scalable systems that power modern organizations.
+            </p>
+        <Link
+          href="/contact"
+          className="inline-block bg-blue-500 px-10 py-4 rounded-xl font-semibold 
+          transition-all duration-300 
+          hover:bg-blue-600 hover:scale-105 
+          hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+        >
+          Schedule Consultation
+        </Link>
+
+          </div>
+
         </section>
 
       </div>
