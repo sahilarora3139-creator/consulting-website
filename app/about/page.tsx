@@ -60,11 +60,10 @@ export default function AboutPage() {
               icon: <BarChart3 className="text-blue-400 mb-4" />
             }
           ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -6 }}
-              className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-2xl"
-            >
+<div
+  key={i}
+  className="bg-white/5 border border-white/10 backdrop-blur-lg p-8 rounded-2xl hover:-translate-y-1 transition"
+>
               {item.icon}
               <h3 className="text-xl font-semibold mb-3">
                 {item.title}
@@ -72,7 +71,7 @@ export default function AboutPage() {
               <p className="text-gray-400">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
 
         </section>
