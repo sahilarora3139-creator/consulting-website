@@ -136,7 +136,7 @@ export default function RootLayout({
                 </li>
                 <li>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/company/techshield-analytics/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition"
