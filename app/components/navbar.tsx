@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin, Instagram, Github } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -69,7 +69,7 @@ export default function Navbar() {
           {/* Social Icons */}
           <div className="flex items-center gap-4 text-gray-600">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/techshield-analytics/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 transition"
@@ -78,16 +78,16 @@ export default function Navbar() {
             </a>
 
             <a
-              href="https://twitter.com"
+              href="https://www.instagram.com/techshieldanalytics?igsh=MWx0Mmh6OXd0bmNmbA=="
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 transition"
             >
-              <Twitter size={18} />
+              <Instagram size={18} /> 
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/TechShieldAnalytics"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 transition"

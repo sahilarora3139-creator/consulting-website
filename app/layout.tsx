@@ -131,7 +131,7 @@ export default function RootLayout({
                     href="mailto:sahil.arora3139@gmail.com"
                     className="hover:text-white transition"
                   >
-                    techshieldorsintelligence@gmail.com 
+                    support@techshieldanalytics.com 
                   </a>
                 </li>
                 <li>

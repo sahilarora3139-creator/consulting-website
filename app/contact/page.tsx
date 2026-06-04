@@ -106,7 +106,7 @@ hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
                 href="mailto:sahil.arora35@gmail.com"
                 className="text-blue-400 font-semibold hover:underline block mt-2"
               >
-                techshieldorsintelligence@gmail.com
+                support@techshieldanalytics.com
               </a>
             </div>
           </div>
