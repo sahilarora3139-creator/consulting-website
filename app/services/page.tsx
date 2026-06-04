@@ -1,11 +1,13 @@
 // app/services/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { pillars } from "@/lib/services-data";
 import { PillarIcon } from "@/components/services/PillarIcon";
 import { CTASection } from "@/components/services/CTASection";
 import { BreadcrumbJsonLd } from "@/components/services/JsonLd";
+import { OperationsPanel } from "@/components/services/OperationsPanel";
+import { RotatingWord } from "@/components/services/RotatingWord";
 
 export const metadata: Metadata = {
   title: "Services — Cloud, Data, AI, Audit & Security | TechShield Analytics",
@@ -14,12 +16,39 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services" },
 };
 
+const pillarAccents: Record<string, { ring: string; chip: string }> = {
+  cloud: { ring: "ring-emerald-500/40", chip: "bg-emerald-100 text-emerald-700" },
+  audit: { ring: "ring-sienna/40", chip: "bg-[#FCEEE7] text-sienna" },
+  data: { ring: "ring-emerald-600/40", chip: "bg-emerald-100 text-emerald-700" },
+  ai: { ring: "ring-sienna/40", chip: "bg-[#FCEEE7] text-sienna" },
+  saas: { ring: "ring-ink-300/30", chip: "bg-ink-100 text-ink-700" },
+};
+
+const marqueeTags = [
+  "VAPT",
+  "Cloud Migration",
+  "MLOps",
+  "GRC",
+  "Data Engineering",
+  "GenAI",
+  "DevSecOps",
+  "TPRM",
+  "Snowflake",
+  "Power BI",
+  "AWS · Azure · GCP",
+  "ISO 27001",
+  "SOC 2",
+  "DPDP",
+  "Computer Vision",
+  "Real-time Analytics",
+];
+
 export default function ServicesHubPage() {
   const activePillars = pillars.filter((p) => p.active);
   const inactivePillars = pillars.filter((p) => !p.active);
 
   return (
-    <main className="bg-paper text-ink-900 min-h-screen font-sans">
+    <main className="bg-paper text-ink-900">
       <BreadcrumbJsonLd
         crumbs={[
           { name: "Home", url: "https://techshieldanalytics.com" },
@@ -27,151 +56,239 @@ export default function ServicesHubPage() {
         ]}
       />
 
-      {/* HERO */}
-      <section className="relative border-b border-ink-100 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-100/60 blur-[120px] rounded-full" />
-          <div className="absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-sienna/5 blur-[100px] rounded-full" />
-        </div>
+      {/* ═══ HERO — Live Operations dashboard ═══ */}
+      <section className="relative overflow-hidden bg-ink-900 text-paper">
+        {/* Architectural grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(31,140,112,1) 1px, transparent 1px), linear-gradient(90deg, rgba(31,140,112,1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        {/* Radial depth */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(31,140,112,0.20),transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(184,73,43,0.12),transparent_50%)]" />
+        {/* Top hairline */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-32 lg:pt-40 pb-20 lg:pb-28">
-          <div className="grid lg:grid-cols-12 gap-12">
+        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:py-32">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+            {/* ─── Headline column ─── */}
             <div className="lg:col-span-7">
-              <p className="text-xs uppercase tracking-[0.25em] text-emerald-700 font-medium mb-6">
-                Capabilities
-              </p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-ink-900 leading-[1.02] tracking-tight">
-                Five practices.
-                <br />
-                <span className="italic font-light text-emerald-700">
-                  One integrated team.
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-100">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 </span>
+                Services · Live
+              </div>
+
+              <h1 className="font-display text-5xl font-light leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
+                Engineered to{" "}
+                <RotatingWord
+                  words={["protect.", "scale.", "decide.", "audit.", "predict.", "build."]}
+                  className="italic text-emerald-300"
+                />
               </h1>
-              <p className="mt-8 text-xl text-ink-700 leading-relaxed max-w-2xl">
-                TechShield Analytics designs cloud, data and AI systems for
-                organizations that need outcomes — not slide decks. Choose a
-                practice below to see the full service catalogue.
+
+              <p className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 md:text-xl">
+                Five practices. One philosophy — outcomes over output. From cloud
+                to AI to audit, we ship work that compounds for enterprises and
+                growth-stage teams.
               </p>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-paper px-6 py-3.5 text-sm font-medium text-ink-900 transition-all hover:bg-emerald-300"
+                >
+                  Start a conversation
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <Link
+                  href="#practices"
+                  className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-6 py-3.5 text-sm font-medium text-paper transition-colors hover:border-emerald-300/60 hover:text-emerald-200"
+                >
+                  Explore practices
+                </Link>
+              </div>
             </div>
 
-            <aside className="lg:col-span-5 lg:pl-10 lg:border-l border-ink-100 lg:pt-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-ink-500 mb-4">
-                At a glance
-              </p>
-              <dl className="space-y-5">
-                <Stat label="Practices" value="5" />
-                <Stat
-                  label="Service areas"
-                  value={pillars
-                    .reduce((n, p) => n + p.subcategories.length, 0)
-                    .toString()}
-                />
-                <Stat label="Headquartered in" value="New Delhi, India" />
-              </dl>
-            </aside>
+            {/* ─── Live operations panel ─── */}
+            <div className="lg:col-span-5">
+              <OperationsPanel />
+            </div>
+          </div>
+        </div>
+
+        {/* Marquee strip at bottom */}
+        <div className="relative overflow-hidden border-t border-emerald-500/10 bg-ink-900/80 py-5 backdrop-blur-sm">
+          <div className="flex w-max animate-scroll items-center">
+            {[...marqueeTags, ...marqueeTags].map((tag, i) => (
+              <div key={i} className="flex shrink-0 items-center">
+                <span className="px-8 font-display text-xs uppercase tracking-[0.25em] text-paper/45">
+                  {tag}
+                </span>
+                <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500/30" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PILLAR GRID */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
-        <div className="flex items-baseline justify-between mb-14">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-ink-500 mb-3">
-              The practices
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl text-ink-900 tracking-tight">
-              Where to begin.
+      {/* ═══ PRACTICES GRID ═══ */}
+      <section
+        id="practices"
+        className="relative mx-auto max-w-7xl px-6 py-24 md:py-32"
+      >
+        <div className="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <div className="mb-4 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-ink-500">
+              <span className="h-px w-8 bg-emerald-700" />
+              Five practices
+            </div>
+            <h2 className="font-display text-4xl font-light leading-[1.1] tracking-tight text-ink-900 md:text-5xl">
+              Built around the work that{" "}
+              <span className="italic text-emerald-700">moves the needle</span>.
             </h2>
           </div>
+          <p className="max-w-xs text-sm leading-relaxed text-ink-500">
+            Each practice runs as a focused team with its own delivery
+            methodology — reviewed end-to-end across security, data and
+            engineering.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-px bg-ink-100">
-          {activePillars.map((p, idx) => (
-            <Link
-              key={p.id}
-              href={`/services/${p.id}`}
-              className="group bg-paper hover:bg-paper-soft transition-colors p-10 lg:p-12 flex flex-col gap-8 relative"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-xl text-ink-300 tabular-nums">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <div className="w-12 h-12 border border-ink-100 flex items-center justify-center text-emerald-700 group-hover:bg-emerald-700 group-hover:text-paper group-hover:border-emerald-700 transition-colors">
-                    <PillarIcon name={p.iconName} size={20} />
+        <div className="grid gap-6 md:grid-cols-2">
+          {activePillars.map((pillar, idx) => {
+            const accent = pillarAccents[pillar.id] ?? pillarAccents.cloud;
+            return (
+              <Link
+                key={pillar.id}
+                href={`/services/${pillar.id}`}
+                className="group relative overflow-hidden rounded-2xl border border-ink-100 bg-paper transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-15px_rgba(26,26,26,0.18)]"
+              >
+                <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-emerald-700 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="relative p-8 md:p-10">
+                  <div className="mb-8 flex items-start justify-between">
+                    <span className="font-display text-xs tracking-widest text-ink-300">
+                      0{idx + 1}
+                    </span>
+                    <div
+                      className={`flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-700/[0.06] text-emerald-700 ring-1 ${accent.ring} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                    >
+                      <PillarIcon name={pillar.iconName} className="h-7 w-7" />
+                    </div>
+                  </div>
+
+                  <h3 className="font-display text-3xl font-light leading-tight tracking-tight text-ink-900 md:text-[2rem]">
+                    {pillar.label}
+                  </h3>
+                  <p className="mt-4 text-base leading-relaxed text-ink-500">
+                    {pillar.tagline}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {pillar.subcategories.slice(0, 4).map((s) => (
+                      <span
+                        key={s.id}
+                        className="rounded-full bg-paper-soft px-3 py-1.5 text-xs text-ink-700"
+                      >
+                        {s.title}
+                      </span>
+                    ))}
+                    {pillar.subcategories.length > 4 && (
+                      <span
+                        className={`rounded-full px-3 py-1.5 text-xs font-medium ${accent.chip}`}
+                      >
+                        +{pillar.subcategories.length - 4} more
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-10 flex items-center justify-between border-t border-ink-100 pt-6">
+                    <span className="text-xs uppercase tracking-[0.18em] text-ink-500">
+                      {pillar.subcategories.length} capabilities
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 transition-all group-hover:gap-3">
+                      Explore practice
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
                   </div>
                 </div>
-                <ArrowUpRight
-                  size={22}
-                  className="text-ink-300 group-hover:text-emerald-700 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
-                  strokeWidth={1.5}
-                />
-              </div>
+              </Link>
+            );
+          })}
+        </div>
 
-              <div>
-                <h3 className="font-display text-3xl lg:text-4xl text-ink-900 leading-[1.1] tracking-tight mb-3">
-                  {p.label}
-                </h3>
-                <p className="text-ink-700 leading-relaxed">{p.tagline}</p>
-              </div>
-
-              <div className="mt-auto pt-6 border-t border-ink-100 flex items-center justify-between text-sm">
-                <span className="text-ink-500">
-                  {p.subcategories.length} service areas
-                </span>
-                <span className="text-emerald-700 font-medium group-hover:underline underline-offset-4 decoration-1">
-                  Explore practice →
-                </span>
-              </div>
-            </Link>
-          ))}
-
-          {/* Inactive pillars (SaaS — coming soon) */}
-          {inactivePillars.map((p, idx) => (
-            <div
-              key={p.id}
-              className="bg-paper-soft p-10 lg:p-12 flex flex-col gap-8 relative opacity-70"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-xl text-ink-300 tabular-nums">
-                    {String(activePillars.length + idx + 1).padStart(2, "0")}
+        {inactivePillars.length > 0 && (
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {inactivePillars.map((pillar, idx) => (
+              <div
+                key={pillar.id}
+                className="relative overflow-hidden rounded-2xl border border-dashed border-ink-100 bg-paper-soft/40 p-8 md:p-10"
+              >
+                <div className="mb-8 flex items-start justify-between">
+                  <span className="font-display text-xs tracking-widest text-ink-300">
+                    0{activePillars.length + idx + 1}
                   </span>
-                  <div className="w-12 h-12 border border-ink-100 flex items-center justify-center text-ink-500">
-                    <PillarIcon name={p.iconName} size={20} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-ink-100/60 text-ink-500 ring-1 ring-ink-100">
+                    <PillarIcon name={pillar.iconName} className="h-7 w-7" />
                   </div>
                 </div>
-                <span className="text-[10px] uppercase tracking-widest bg-ink-900 text-paper px-2.5 py-1">
-                  Coming soon
-                </span>
-              </div>
-              <div>
-                <h3 className="font-display text-3xl lg:text-4xl text-ink-700 leading-[1.1] tracking-tight mb-3">
-                  {p.label}
+                <h3 className="font-display text-3xl font-light leading-tight tracking-tight text-ink-500 md:text-[2rem]">
+                  {pillar.label}
                 </h3>
-                <p className="text-ink-500 leading-relaxed">{p.tagline}</p>
+                <p className="mt-4 text-base text-ink-500/80">{pillar.tagline}</p>
+                <div className="mt-10 flex items-center justify-between border-t border-ink-100 pt-6">
+                  <span className="rounded-full bg-ink-100/60 px-3 py-1 text-xs font-medium uppercase tracking-wider text-ink-700">
+                    Coming soon
+                  </span>
+                </div>
               </div>
-              <div className="mt-auto pt-6 border-t border-ink-100 flex items-center justify-between text-sm">
-                <span className="text-ink-500">In development</span>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* ═══ PHILOSOPHY STRIP ═══ */}
+      <section className="relative bg-paper-soft py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-3 lg:gap-16">
+            {[
+              {
+                k: "Outcomes, not hours",
+                v: "We scope to business outcomes — uptime, audit-readiness, model accuracy — not consultant headcount.",
+              },
+              {
+                k: "Security as default",
+                v: "Every engagement runs through our audit lens. No 'we'll fix it later.' Security gets built in from day one.",
+              },
+              {
+                k: "Compounding code",
+                v: "We leave behind infrastructure, runbooks and dashboards your team owns — not black boxes only we can maintain.",
+              },
+            ].map((item, i) => (
+              <div key={item.k} className="relative">
+                <div className="mb-5 font-display text-sm text-emerald-700">
+                  /{String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="font-display text-2xl font-light leading-snug text-ink-900">
+                  {item.k}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-ink-500">
+                  {item.v}
+                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       <CTASection />
     </main>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-baseline justify-between gap-6 border-b border-ink-100 pb-4">
-      <dt className="text-sm text-ink-500">{label}</dt>
-      <dd className="font-display text-xl text-ink-900 tabular-nums text-right">
-        {value}
-      </dd>
-    </div>
   );
 }

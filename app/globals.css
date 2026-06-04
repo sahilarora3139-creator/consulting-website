@@ -12,16 +12,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-paper);
+  color: var(--color-ink-900);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -45,4 +39,25 @@ body {
 
 .animate-scroll {
   animation: scroll 40s linear infinite;
+}
+
+@theme {
+  --color-paper: #faf8f4;
+  --color-paper-soft: #f4f0e8;
+
+  --color-ink-900: #1a1a1a;
+  --color-ink-700: #3d3d3d;
+  --color-ink-500: #6b6b6b;
+  --color-ink-300: #a8a8a8;
+  --color-ink-100: #e5e1d8;
+
+  --color-emerald-700: #0f5c4a;
+  --color-emerald-600: #15735c;
+  --color-emerald-500: #1f8c70;
+  --color-emerald-100: #e8f0ec;
+
+  --color-sienna: #b8492b;
+
+  --font-family-display: var(--font-display), "Times New Roman", serif;
+  --font-family-sans: var(--font-sans), system-ui, sans-serif;
 }

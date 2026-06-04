@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import PageTransition from "./components/PageTransition";
@@ -13,6 +13,16 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+const fraunces = Fraunces({
+  variable: "--font-display",
+  subsets: ["latin"],
+  axes: ["opsz"],
+});
+
+const interTight = Inter_Tight({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -53,7 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${interTight.variable}`}>
+
       <head>
         <link
           href="https://assets.calendly.com/assets/external/widget.css"

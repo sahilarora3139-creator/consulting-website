@@ -1182,6 +1182,257 @@ const aiSubcategories: Subcategory[] = [
   },
 ];
 
+// ─── SAAS ─────────────────────────────────────────────────────────────────────
+
+const saasSubcategories: Subcategory[] = [
+  {
+    id: "saas-product-development",
+    title: "SaaS Product Development",
+    icon: "🚀",
+    metaTitle: "SaaS Product Development Services | Multi-tenant Apps | TechShield Analytics",
+    metaDescription: "End-to-end SaaS product development with multi-tenant architecture, scalable cloud-native design, subscription billing and continuous delivery.",
+    intro:
+      "Turn product ideas into scalable, revenue-generating SaaS platforms. At TechShield Analytics, we design and engineer cloud-native SaaS applications from the ground up — multi-tenant by default, secure by design, and built to scale with your customers. From MVP to production-grade platform, we handle architecture, development, billing integration and post-launch operations so your team can focus on customers and growth.",
+    keyOutcomes: [
+      "Launch production-ready SaaS platforms with multi-tenant architecture and subscription billing",
+      "Reduce time-to-market with reusable components, CI/CD pipelines and cloud-native foundations",
+      "Build for scale from day one — handle 10 or 10,000 tenants without re-architecting",
+    ],
+    services: [
+      { icon: "🏗️", title: "Multi-tenant Architecture Design", points: ["Tenant isolation strategies", "Database per-tenant vs shared schema"] },
+      { icon: "⚙️", title: "Full-stack SaaS Development", points: ["Frontend, backend, APIs", "Cloud-native deployment"] },
+      { icon: "💳", title: "Subscription & Billing Integration", points: ["Stripe, Razorpay, Paddle", "Plan management & metering"] },
+      { icon: "🔐", title: "Authentication & Access Control", points: ["SSO, RBAC, MFA", "Tenant-level permissions"] },
+      { icon: "📊", title: "Admin & Analytics Dashboards", points: ["Tenant management", "Usage & revenue metrics"] },
+      { icon: "🔄", title: "CI/CD & DevOps Setup", points: ["Automated deployments", "Multi-environment strategy"] },
+    ],
+    whyUs: [
+      "Deep multi-tenant SaaS architecture experience across AWS, Azure and GCP",
+      "Security-first build process — VAPT-ready from day one",
+      "Integrated data engineering for analytics-heavy SaaS products",
+      "End-to-end ownership: idea to launch to scale",
+    ],
+    approach: [
+      { step: "Product Strategy & Requirements", desc: "Map user personas, define MVP scope and validate technical feasibility." },
+      { step: "Architecture Design", desc: "Design multi-tenant data model, API contracts and infrastructure topology." },
+      { step: "Development & Integration", desc: "Build the platform with billing, auth and third-party integrations." },
+      { step: "Testing & Deployment", desc: "Run security, performance and tenant-isolation tests; deploy via CI/CD." },
+      { step: "Continuous Improvement", desc: "Monitor, iterate based on usage data and ship enhancements continuously." },
+    ],
+    faqs: [
+      { q: "How long does it take to build a SaaS product?", a: "MVP typically takes 3–4 months; production-grade SaaS with billing, admin and analytics takes 6–9 months depending on complexity." },
+      { q: "Is the SaaS we build secure?", a: "Yes — we embed VAPT, encryption, RBAC and audit logging from day one, and align with SOC 2 and ISO 27001 controls." },
+      { q: "Can you convert existing software to SaaS?", a: "Yes, we handle legacy modernization and multi-tenant refactoring — see our SaaS Migration capability for details." },
+      { q: "What does it cost to build a SaaS product?", a: "Costs depend on scope and complexity. We typically engage on fixed-scope MVPs or milestone-based delivery models — contact us for a tailored estimate." },
+    ],
+  },
+  {
+    id: "saas-design",
+    title: "SaaS Design & UX",
+    icon: "🎨",
+    metaTitle: "SaaS Product Design & UX Services | Dashboards & Design Systems | TechShield Analytics",
+    metaDescription: "User-centric SaaS product design: UI/UX, analytics dashboards, design systems, onboarding flows and multi-tenant interfaces.",
+    intro:
+      "Great SaaS products are built on great user experience. At TechShield Analytics, we design intuitive, high-performing SaaS interfaces that drive user adoption, engagement and retention. From wireframes to production design systems, we bring deep analytics and product expertise to every interface — especially data-heavy dashboards where every pixel earns its place.",
+    keyOutcomes: [
+      "Increase user adoption and retention with research-driven UX design",
+      "Ship faster with scalable design systems and reusable component libraries",
+      "Convert complex data into intuitive, action-oriented dashboards",
+    ],
+    services: [
+      { icon: "🖌️", title: "UI/UX Design for SaaS", points: ["Web & mobile interfaces", "User journey mapping, wireframes, prototypes"] },
+      { icon: "📊", title: "Analytics Dashboard Design", points: ["Admin panels & data visualization UI", "BI-grade dashboard patterns"] },
+      { icon: "🧩", title: "Design Systems & Component Libraries", points: ["Reusable UI components", "Scalable visual language"] },
+      { icon: "🎯", title: "Product Experience Design", points: ["Onboarding flows", "Conversion-focused design"] },
+      { icon: "✨", title: "SaaS Branding & Visual Identity", points: ["Product branding & themes", "Visual consistency at scale"] },
+      { icon: "👥", title: "Multi-tenant Interface Design", points: ["Tenant-based UI customization", "Role-based interface variants"] },
+    ],
+    whyUs: [
+      "SaaS-native design expertise — not generic web design adapted to dashboards",
+      "Strong analytics background drives data-visualization design choices",
+      "Production-ready design systems handed off to engineering, not just mockups",
+      "Business-driven design grounded in conversion, retention and engagement metrics",
+    ],
+    approach: [
+      { step: "Discover Product & Users", desc: "Understand the product vision, user personas and business goals." },
+      { step: "Research & UX Strategy", desc: "Map user journeys, identify friction points and define design priorities." },
+      { step: "Design & Prototype", desc: "Build wireframes, high-fidelity mockups and interactive prototypes." },
+      { step: "Test & Iterate", desc: "Validate with users, gather feedback and refine the design." },
+      { step: "Deliver & Optimize", desc: "Hand off to engineering with a design system and ongoing optimization support." },
+    ],
+    faqs: [
+      { q: "Do you design complete SaaS products or just screens?", a: "Both — we can deliver end-to-end product design with a design system, or focus on specific flows like onboarding, billing or dashboards." },
+      { q: "Can you redesign existing SaaS dashboards?", a: "Yes — dashboard redesigns are one of our strongest engagements, especially for analytics-heavy products." },
+      { q: "Do you work directly with developers?", a: "Yes — we deliver Figma files with spec annotations, design tokens and component libraries that engineering can implement directly." },
+      { q: "How long does SaaS design take?", a: "A full product design engagement is typically 4–8 weeks; targeted redesigns of specific flows take 2–4 weeks." },
+    ],
+  },
+  {
+    id: "mdm",
+    title: "Mobile Device Management",
+    icon: "📱",
+    metaTitle: "MDM & UEM Services | Intune, Workspace ONE | TechShield Analytics",
+    metaDescription: "Mobile Device Management and Unified Endpoint Management: device enrollment, security policies, BYOD, app management and compliance.",
+    intro:
+      "Secure and manage every device your workforce uses — laptops, phones, tablets and tablets — from a single console. At TechShield Analytics, we implement Mobile Device Management (MDM) and Unified Endpoint Management (UEM) programs that enforce security policies, enable secure BYOD, and give your IT team centralized control without slowing employees down. Built for the modern hybrid workforce.",
+    keyOutcomes: [
+      "Centralized control over all corporate and personal devices accessing company data",
+      "Enforce security policies, encryption and compliance across your entire endpoint fleet",
+      "Reduce IT effort with automated device onboarding, updates and remote support",
+    ],
+    services: [
+      { icon: "📲", title: "Device Enrollment & Configuration", points: ["Bulk device onboarding", "Policy-based configuration profiles"] },
+      { icon: "🛡️", title: "Device Security Management", points: ["Remote lock & wipe", "Encryption & malware protection"] },
+      { icon: "📦", title: "Application Management", points: ["App deployment, updates & restrictions", "Enterprise app catalogs"] },
+      { icon: "🔑", title: "Access & Identity Control", points: ["Role-based access policies", "Conditional access by device posture"] },
+      { icon: "📴", title: "BYOD Management", points: ["Secure personal devices", "Work–personal data separation"] },
+      { icon: "📡", title: "Monitoring & Endpoint Support", points: ["Real-time device health tracking", "Compliance reporting"] },
+    ],
+    whyUs: [
+      "Security-first approach — every policy reviewed by our audit and risk practice",
+      "Platform-agnostic expertise across Intune, Workspace ONE, MobileIron and Google Endpoint",
+      "Seamless onboarding playbooks for fleets from 50 to 50,000 devices",
+      "Continuous monitoring and quarterly compliance reviews built in",
+    ],
+    approach: [
+      { step: "Assess Device Landscape", desc: "Inventory devices, OS distribution, ownership models and current security posture." },
+      { step: "Define Policies", desc: "Design enrollment, security, app and access policies aligned with business needs." },
+      { step: "Deploy MDM Solution", desc: "Roll out the chosen platform with phased enrollment across user groups." },
+      { step: "Secure Devices", desc: "Enforce encryption, MFA, remote wipe and app controls across the fleet." },
+      { step: "Monitor & Optimize", desc: "Track compliance, respond to incidents and refine policies over time." },
+    ],
+    faqs: [
+      { q: "Can personal devices (BYOD) be managed securely?", a: "Yes — modern MDM platforms isolate corporate data in containers, keeping personal data private while securing work data." },
+      { q: "What happens if a device is lost or stolen?", a: "Devices can be remotely locked or wiped (selectively or fully) within minutes through the MDM console." },
+      { q: "Is employee privacy maintained?", a: "On BYOD devices, IT only sees corporate data and app inventory. Personal apps, messages and browsing stay private." },
+      { q: "How scalable is MDM?", a: "Platforms like Intune and Workspace ONE handle hundreds of thousands of devices — we've deployed across fleets of all sizes." },
+    ],
+  },
+  {
+    id: "vdi",
+    title: "Virtual Desktops & DaaS",
+    icon: "🖥️",
+    metaTitle: "VDI & DaaS Services | Azure Virtual Desktop, AWS WorkSpaces | TechShield Analytics",
+    metaDescription: "Virtual Desktop Infrastructure and Desktop-as-a-Service deployments on Azure, AWS, Citrix and VMware Horizon. Secure remote work at scale.",
+    intro:
+      "Enable secure work from anywhere with cloud-hosted virtual desktops. At TechShield Analytics, we design and deploy Virtual Desktop Infrastructure (VDI) and Desktop-as-a-Service (DaaS) solutions that let your workforce access their full desktop environment from any device, anywhere — without compromising security or performance. Centralized, secure, scalable.",
+    keyOutcomes: [
+      "Deliver full desktop experiences to a remote or hybrid workforce on any device",
+      "Centralize data and applications — no sensitive data ever leaves the data center",
+      "Reduce hardware costs and IT overhead with thin-client-friendly architecture",
+    ],
+    services: [
+      { icon: "🚀", title: "VDI Setup & Deployment", points: ["Cloud-based desktop environments", "User provisioning at scale"] },
+      { icon: "☁️", title: "Desktop as a Service (DaaS)", points: ["Fully managed virtual desktops", "Subscription-based delivery"] },
+      { icon: "📱", title: "Application Virtualization", points: ["Stream apps without local install", "Centralized app delivery"] },
+      { icon: "🔐", title: "Secure Remote Access", points: ["VPN-less Zero Trust access", "Identity-based access control"] },
+      { icon: "⚡", title: "VDI Optimization", points: ["Session performance tuning", "Right-sizing & cost optimization"] },
+      { icon: "🛠️", title: "VDI Support & Management", points: ["24×7 monitoring", "User support & helpdesk"] },
+    ],
+    whyUs: [
+      "Multi-platform expertise: Azure Virtual Desktop, AWS WorkSpaces, Citrix, VMware Horizon",
+      "Strong cybersecurity foundation — Zero Trust access designed in from day one",
+      "Cost-optimized deployments with hibernation, auto-scaling and right-sized instances",
+      "End-to-end ownership: design, deploy, secure, monitor and support",
+    ],
+    approach: [
+      { step: "Assess Workforce Needs", desc: "Profile user types, application requirements and access patterns." },
+      { step: "Design VDI Architecture", desc: "Choose platform, sizing, network topology and identity integration." },
+      { step: "Deploy & Configure", desc: "Provision the environment, gold images, profiles and applications." },
+      { step: "Secure Access Setup", desc: "Implement MFA, conditional access and session security controls." },
+      { step: "Monitor & Optimize", desc: "Track performance, optimize costs and scale capacity as the workforce evolves." },
+    ],
+    faqs: [
+      { q: "Is VDI secure?", a: "Yes — data stays in the data center, sessions are encrypted and access can be locked to managed devices and trusted networks." },
+      { q: "What does VDI cost?", a: "Costs depend on user count, session intensity and platform — DaaS typically runs ₹1,500–₹4,500 per user per month including infrastructure." },
+      { q: "Can we scale users up and down easily?", a: "Yes — cloud VDI scales elastically. You can add hundreds of users in minutes or scale down to handle seasonal variation." },
+      { q: "Does VDI require high internet speed?", a: "A stable 5–10 Mbps connection per user is sufficient for most workloads. Latency matters more than raw bandwidth." },
+    ],
+  },
+  {
+    id: "cloud-backup",
+    title: "SaaS Backup & Recovery",
+    icon: "💾",
+    metaTitle: "SaaS Backup & Recovery Services | M365, Google Workspace | TechShield Analytics",
+    metaDescription: "Cloud backup and disaster recovery for SaaS platforms: Microsoft 365, Google Workspace, CRMs and custom SaaS. Automated, encrypted, audit-ready.",
+    intro:
+      "Even cloud apps need backup — data loss can still happen. At TechShield Analytics, we design and operate cloud backup programs that protect data inside your SaaS platforms (Microsoft 365, Google Workspace, Salesforce, custom apps) against accidental deletion, ransomware, malicious actors and compliance gaps. Automated, encrypted, recoverable in minutes.",
+    keyOutcomes: [
+      "Protect SaaS data against deletion, ransomware and platform-level outages",
+      "Meet compliance requirements with audit-ready backup logs and recovery testing",
+      "Reduce recovery time from days to minutes with point-in-time restore capabilities",
+    ],
+    services: [
+      { icon: "⏰", title: "Automated Backup Setup", points: ["Scheduled & continuous backups", "Multi-source SaaS coverage"] },
+      { icon: "🔄", title: "Data Recovery & Restore", points: ["Point-in-time restore", "Granular recovery (file, mailbox, record)"] },
+      { icon: "🌍", title: "Multi-region Backup Storage", points: ["Geo-redundant storage", "Disaster-ready replication"] },
+      { icon: "🚨", title: "Backup Monitoring & Alerts", points: ["Real-time backup health checks", "Failure alerts & escalation"] },
+      { icon: "🔒", title: "Backup Security", points: ["Encryption at rest and in transit", "Immutable backup options"] },
+      { icon: "💰", title: "Backup Optimization", points: ["Storage tiering & lifecycle", "Cost-aware retention policies"] },
+    ],
+    whyUs: [
+      "Strong audit and compliance background — backup programs designed for ISO, SOC 2 and DPDP",
+      "Recovery testing built into every engagement — backups that actually restore",
+      "Cost-efficient retention strategies with tiered storage and intelligent lifecycle",
+      "Coverage across M365, Google Workspace, Salesforce, HubSpot and custom SaaS platforms",
+    ],
+    approach: [
+      { step: "Assess Data & Risk", desc: "Inventory SaaS platforms, classify data sensitivity and define recovery objectives." },
+      { step: "Design Backup Strategy", desc: "Choose backup frequency, retention, storage tiers and recovery targets." },
+      { step: "Implement Backup Solutions", desc: "Deploy backup tooling, configure schedules and integrate with SaaS APIs." },
+      { step: "Monitor & Optimize", desc: "Track backup health, costs and retention compliance continuously." },
+      { step: "Test Recovery", desc: "Run quarterly recovery drills to verify backups actually restore as expected." },
+    ],
+    faqs: [
+      { q: "Don't SaaS platforms already provide backup?", a: "SaaS platforms protect against their own infrastructure failures — not against your users deleting data, ransomware or account compromise. Third-party backup is essential." },
+      { q: "How often should backups run?", a: "For business-critical SaaS, we typically configure backups every 4–6 hours with continuous protection for transactional data." },
+      { q: "How fast can data be restored?", a: "Granular restores (single files, emails, records) typically complete in minutes. Full-tenant restores take hours depending on data volume." },
+      { q: "Is backup data secure?", a: "Yes — backups are encrypted at rest and in transit, with access controlled via RBAC. Immutable backup options protect against ransomware." },
+    ],
+  },
+  {
+    id: "saas-integration",
+    title: "SaaS Integration & APIs",
+    icon: "🔌",
+    metaTitle: "SaaS Integration & API Services | iPaaS, Workflow Automation | TechShield Analytics",
+    metaDescription: "Connect your SaaS stack with custom API integrations, iPaaS platforms, webhooks and workflow automation across CRM, ERP, billing and analytics tools.",
+    intro:
+      "Your SaaS stack is only as powerful as the data flowing between its apps. At TechShield Analytics, we design and build the integrations that connect your CRM, ERP, billing, analytics and operations tools into a single coherent system. Custom APIs, iPaaS platforms (Zapier, Workato, n8n), webhooks and event-driven architectures — built to be reliable, observable and maintainable.",
+    keyOutcomes: [
+      "Eliminate manual data entry and reconciliation across your SaaS ecosystem",
+      "Build real-time data flows between CRM, ERP, billing and analytics platforms",
+      "Reduce integration maintenance overhead with observable, well-documented pipelines",
+    ],
+    services: [
+      { icon: "🔗", title: "Custom API Development", points: ["REST & GraphQL APIs", "API gateways & rate limiting"] },
+      { icon: "🔀", title: "iPaaS Implementation", points: ["Zapier, Workato, n8n, Make", "Workflow automation at scale"] },
+      { icon: "📨", title: "Event-driven Integrations", points: ["Webhooks & message queues", "Real-time event processing"] },
+      { icon: "🔁", title: "Data Sync & Reconciliation", points: ["Bi-directional sync", "Conflict resolution strategies"] },
+      { icon: "🛒", title: "Third-party SaaS Connectors", points: ["CRM, ERP, billing, payments", "Pre-built and custom connectors"] },
+      { icon: "📈", title: "Integration Monitoring", points: ["Pipeline health dashboards", "Failure alerts & retry logic"] },
+    ],
+    whyUs: [
+      "Deep API design experience — integrations that don't break silently",
+      "Platform-agnostic: iPaaS, custom code or hybrid — we pick what fits your scale",
+      "Security-first: every integration audited for data exposure and access scope",
+      "Observable by default — monitoring, alerting and runbooks built in",
+    ],
+    approach: [
+      { step: "Map the SaaS Landscape", desc: "Inventory current SaaS tools, data flows and integration pain points." },
+      { step: "Design Integration Architecture", desc: "Choose between iPaaS, custom code or hybrid; define data contracts." },
+      { step: "Build & Configure", desc: "Implement integrations with proper auth, error handling and idempotency." },
+      { step: "Test & Validate", desc: "Run end-to-end tests, handle edge cases and verify data integrity." },
+      { step: "Monitor & Maintain", desc: "Track integration health, costs and respond to API changes from vendors." },
+    ],
+    faqs: [
+      { q: "Should we use an iPaaS platform or build custom integrations?", a: "iPaaS is faster and cheaper for standard connectors; custom code is better for high-volume, complex logic or where iPaaS limits become bottlenecks. We often combine both." },
+      { q: "How do you handle vendor API changes?", a: "We version integrations, monitor for deprecation notices and maintain a runbook for each connector. Critical integrations include automated regression tests." },
+      { q: "Can you integrate legacy on-prem systems with SaaS?", a: "Yes — through hybrid integration patterns using secure tunnels, API gateways or middleware. We design for the specific constraints of each legacy system." },
+      { q: "How long does a typical SaaS integration take?", a: "Simple connectors (Zapier-style) take days; mid-complexity custom integrations take 2–4 weeks; large multi-system implementations run 2–4 months." },
+    ],
+  },
+];
+
 // ─── PILLARS ──────────────────────────────────────────────────────────────────
 
 export const pillars: Pillar[] = [
@@ -1203,12 +1454,13 @@ export const pillars: Pillar[] = [
     iconName: "Layers",
     label: "SaaS Solutions",
     shortLabel: "SaaS",
-    tagline: "Purpose-built SaaS products for analytics, compliance and audit.",
-    active: false,
-    metaTitle: "SaaS Solutions | TechShield Analytics",
-    metaDescription: "Purpose-built SaaS products for analytics, compliance and audit. Coming soon.",
-    intro: "Coming soon.",
-    subcategories: [],
+    tagline: "Scalable SaaS product development, design, integration and managed services.",
+    active: true,
+    metaTitle: "SaaS Solutions | Product Development, Design, MDM, VDI, Backup | TechShield Analytics",
+    metaDescription: "End-to-end SaaS services: product development, design and UX, MDM/UEM, virtual desktops, cloud backup and SaaS integrations. Build, scale and operate SaaS at enterprise grade.",
+    intro:
+      "Accelerate business growth with scalable SaaS solutions. At TechShield Analytics, we design, build and operate cloud-based SaaS applications and the workplace infrastructure around them — from custom multi-tenant products and design systems to MDM, virtual desktops, backup and SaaS integrations.\n\nWhether you're launching a new SaaS product, modernizing legacy software or operating SaaS at scale across your organization, our SaaS practice covers the full lifecycle. Cloud-native by design, secure by default, scalable by architecture.",
+    subcategories: saasSubcategories,
   },
   {
     id: "audit",
