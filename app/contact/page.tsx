@@ -13,10 +13,11 @@ import {
   Check,
   Loader2,
 } from "lucide-react";
+import { RotatingWord } from "@/components/services/RotatingWord";
 
 // ─── Contact details (edit in one place) ─────────────────────────────────────
 const CONTACT = {
-  email: "support@techshieldanalytics.com",
+  email: "hello@techshieldanalytics.com",
   phoneDisplay: "+91 82877 58018",
   phoneRaw: "+918287758018",
   whatsapp: "https://wa.me/918287758018",
@@ -121,30 +122,95 @@ export default function ContactPage() {
 
   return (
     <main className="bg-paper text-ink-900">
-      {/* ═══ HERO — calm, editorial ═══ */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-32 -top-32 h-[600px] w-[600px] rounded-full bg-emerald-100/50 blur-[120px]" />
-          <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-sienna/[0.04] blur-[100px]" />
-        </div>
+      {/* ═══ HERO — Dark with rotating multilingual greeting ═══ */}
+      <section className="relative overflow-hidden bg-ink-900 text-paper">
+        {/* Architectural grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(31,140,112,1) 1px, transparent 1px), linear-gradient(90deg, rgba(31,140,112,1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        {/* Radial vignettes */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(31,140,112,0.20),transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(184,73,43,0.12),transparent_50%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-500">
-              <span className="h-px w-8 bg-emerald-700" />
-              /Contact
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 lg:py-36">
+          <div className="max-w-4xl">
+            {/* Availability badge */}
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-100">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              Available · Responds within 1 business day
             </div>
 
-            <h1 className="font-display text-5xl font-light leading-[1.02] tracking-tight text-ink-900 md:text-6xl lg:text-7xl">
-              Let&apos;s start a{" "}
-              <span className="italic text-emerald-700">conversation</span>.
+            {/* Rotating greeting + headline */}
+            <h1 className="font-display text-5xl font-light leading-[1.05] tracking-tight md:text-7xl lg:text-[5.5rem]">
+              <RotatingWord
+                words={[
+                  "Hello.",
+                  "Namaste.",
+                  "Hola.",
+                  "Bonjour.",
+                  "你好.",
+                  "こんにちは.",
+                  "안녕.",
+                ]}
+                interval={2000}
+                className="italic text-emerald-300"
+              />
+              <span className="mt-2 block text-paper">
+                Let&apos;s start a{" "}
+                <span className="italic text-emerald-300">conversation</span>.
+              </span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-700 md:text-xl">
+            <p className="mt-10 max-w-2xl text-lg leading-relaxed text-paper/75 md:text-xl">
               Whether you have a defined project, a vague problem, or just want
               to compare notes on a technology choice — we&apos;d love to hear
               from you. No pitch decks, no sales theatre. Just clarity.
             </p>
+
+            {/* Quick channel pills */}
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="group inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-emerald-300/60 hover:text-emerald-200"
+              >
+                <Mail className="h-4 w-4" strokeWidth={1.5} />
+                Email
+              </a>
+              <a
+                href={`tel:${CONTACT.phoneRaw}`}
+                className="group inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-emerald-300/60 hover:text-emerald-200"
+              >
+                <Phone className="h-4 w-4" strokeWidth={1.5} />
+                Call
+              </a>
+              <a
+                href={CONTACT.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-emerald-300/60 hover:text-emerald-200"
+              >
+                <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
+                WhatsApp
+              </a>
+              <button
+                type="button"
+                onClick={openCalendly}
+                className="group inline-flex items-center gap-2 rounded-full bg-paper px-5 py-2.5 text-sm font-medium text-ink-900 transition-all hover:bg-emerald-300"
+              >
+                <Calendar className="h-4 w-4" strokeWidth={1.5} />
+                Schedule a call
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -181,7 +247,7 @@ export default function ContactPage() {
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-700/[0.06] text-emerald-700 ring-1 ring-emerald-500/30">
                         <line.icon className="h-5 w-5" strokeWidth={1.5} />
                       </div>
-                      <div className="flex-1 min-w-0">
+                      <div className="min-w-0 flex-1">
                         <div className="text-[10px] uppercase tracking-[0.2em] text-ink-500">
                           {line.label}
                         </div>
@@ -202,7 +268,7 @@ export default function ContactPage() {
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-700 text-paper">
                       <Calendar className="h-5 w-5" strokeWidth={1.5} />
                     </div>
-                    <div className="flex-1 min-w-0">
+                    <div className="min-w-0 flex-1">
                       <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-700">
                         Schedule a call
                       </div>
@@ -309,7 +375,7 @@ export default function ContactPage() {
                       ) : (
                         <>
                           Send message
-                          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         </>
                       )}
                     </button>
@@ -369,7 +435,6 @@ export default function ContactPage() {
 
       {/* ═══ OFFICE — Dark stylized location ═══ */}
       <section className="relative overflow-hidden bg-ink-900 text-paper">
-        {/* Architectural grid */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
           style={{
@@ -382,7 +447,6 @@ export default function ContactPage() {
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* ─── Address column ─── */}
             <div className="lg:col-span-5">
               <div className="mb-4 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
                 <span className="h-px w-8 bg-emerald-400" />
@@ -409,14 +473,12 @@ export default function ContactPage() {
                 className="group mt-8 inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-emerald-300/60 hover:text-emerald-200"
               >
                 Open in Google Maps
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
 
-            {/* ─── Stylized location card ─── */}
             <div className="lg:col-span-7">
               <div className="relative overflow-hidden rounded-2xl border border-emerald-500/20 bg-ink-900/40 backdrop-blur-sm">
-                {/* Map-tile grid overlay */}
                 <div
                   className="absolute inset-0 opacity-[0.12]"
                   style={{
@@ -425,11 +487,9 @@ export default function ContactPage() {
                     backgroundSize: "30px 30px",
                   }}
                 />
-                {/* Radial focal point */}
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(31,140,112,0.25),transparent_55%)]" />
 
                 <div className="relative p-8 md:p-12">
-                  {/* Header strip */}
                   <div className="mb-12 flex items-center justify-between border-b border-emerald-500/15 pb-4">
                     <div className="flex items-center gap-2.5">
                       <span className="relative flex h-2 w-2">
@@ -445,7 +505,6 @@ export default function ContactPage() {
                     </span>
                   </div>
 
-                  {/* Big district name */}
                   <div className="text-center">
                     <p className="font-mono text-xs uppercase tracking-[0.3em] text-paper/40">
                       District
@@ -457,7 +516,6 @@ export default function ContactPage() {
                       New Delhi · India
                     </p>
 
-                    {/* Crosshair accent */}
                     <div className="mx-auto mt-8 flex w-fit items-center gap-3 text-emerald-300/40">
                       <span className="h-px w-12 bg-current" />
                       <span className="h-2 w-2 rounded-full border border-emerald-300" />
@@ -465,7 +523,6 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Footer meta */}
                   <div className="mt-12 grid grid-cols-2 gap-px border-t border-emerald-500/15 bg-emerald-500/10 pt-px">
                     <div className="bg-ink-900 p-4">
                       <p className="text-[10px] uppercase tracking-[0.22em] text-paper/40">
@@ -491,7 +548,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ═══ Calendly script (preserved) ═══ */}
+      {/* Calendly script */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="afterInteractive"
