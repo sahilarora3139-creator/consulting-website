@@ -8,6 +8,12 @@ import {
   Briefcase,
   Clock,
   Plus,
+  Users,
+  Globe,
+  Zap,
+  TrendingUp,
+  Shield,
+  Database,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -148,6 +154,125 @@ const departmentAccent: Record<Vacancy["department"], string> = {
   Marketing: "bg-[#FCEEE7] text-sienna",
   Engineering: "bg-ink-100 text-ink-900",
 };
+
+// ─── COMPANY SNAPSHOT — shown inside every job posting ────────────────────────
+const companyStats = [
+  { icon: Globe,     value: "4+",    label: "Industries served" },
+  { icon: TrendingUp, value: "10+",  label: "Years engineering" },
+  { icon: Users,     value: "20+",   label: "Projects delivered" },
+  { icon: Zap,       value: "30%",   label: "Avg. infra cost saved" },
+];
+
+const companyPractices = [
+  { icon: Shield,   label: "Cybersecurity & Audit" },
+  { icon: Database, label: "Data Engineering" },
+  { icon: Zap,      label: "AI & Machine Learning" },
+  { icon: Globe,    label: "Cloud Infrastructure" },
+];
+
+function CompanyAbout() {
+  return (
+    <div className="mb-10 overflow-hidden rounded-xl border border-emerald-600/20 bg-gradient-to-br from-emerald-950/40 to-ink-900/60">
+      {/* Header stripe */}
+      <div className="flex items-center justify-between border-b border-emerald-500/15 px-6 py-4">
+        <div className="flex items-center gap-3">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          </span>
+          <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-emerald-400/80">
+            About TechShield Analytics
+          </span>
+        </div>
+        <span className="text-[10px] uppercase tracking-[0.18em] text-ink-400">
+          New Delhi · India
+        </span>
+      </div>
+
+      <div className="p-6 md:p-8">
+
+        {/* Two-col: description + stats */}
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+
+          {/* Left — who we are */}
+          <div>
+            <h4 className="mb-3 font-display text-lg font-light text-ink-900">
+              Who we are
+            </h4>
+            <p className="text-sm leading-relaxed text-ink-600">
+              TechShield Analytics is a Delhi-based technology consulting firm
+              specialising in cloud infrastructure, data engineering,
+              AI/ML and cybersecurity. We partner with startups and
+              enterprises — from Series A SaaS companies to large BFSI
+              institutions — to design, modernise and scale the systems that
+              run their business.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-600">
+              We&apos;re a small, senior-weighted team that moves fast and
+              works on real problems. Every engagement is owned end-to-end —
+              no offshore body-shops, no PowerPoint-first consulting. We build
+              things that ship.
+            </p>
+
+            {/* Practice tags */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {companyPractices.map((p) => (
+                <span
+                  key={p.label}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-emerald-600/20 bg-emerald-50 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-emerald-700"
+                >
+                  <p.icon className="h-3 w-3" strokeWidth={1.5} />
+                  {p.label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — stats grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {companyStats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-xl border border-ink-100 bg-paper p-4"
+              >
+                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-700/[0.07] text-emerald-700">
+                  <s.icon className="h-4 w-4" strokeWidth={1.5} />
+                </div>
+                <div className="font-display text-2xl font-light text-emerald-700">
+                  {s.value}
+                </div>
+                <div className="mt-0.5 text-[10px] uppercase tracking-[0.15em] text-ink-400">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom strip — culture line */}
+        <div className="mt-6 border-t border-ink-100 pt-5">
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            {[
+              "Engineering-first culture",
+              "Senior mentorship on every team",
+              "Outcome-driven, not hours-driven",
+              "Fast feedback loops",
+              "Clear path to full-time (interns)",
+            ].map((trait) => (
+              <span
+                key={trait}
+                className="flex items-center gap-2 text-xs text-ink-500"
+              >
+                <span className="h-1 w-1 rounded-full bg-emerald-600" />
+                {trait}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
@@ -351,13 +476,19 @@ export default function CareersPage() {
                   </div>
                 </summary>
 
-                {/* Details panel */}
+                {/* ── Details panel ── */}
                 <div className="border-t border-ink-100 bg-paper-soft/40 px-6 pb-8 pt-6 md:px-8 md:pb-10">
-                  <p className="max-w-3xl text-base leading-relaxed text-ink-700">
+
+                  {/* Role summary */}
+                  <p className="mb-8 max-w-3xl text-base leading-relaxed text-ink-700">
                     {v.desc}
                   </p>
 
-                  <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-12">
+                  {/* ── ABOUT THE COMPANY ── */}
+                  <CompanyAbout />
+
+                  {/* ── What you'll do + Requirements ── */}
+                  <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
                     {/* Responsibilities */}
                     <div>
                       <h4 className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-ink-500">

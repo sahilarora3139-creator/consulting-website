@@ -104,35 +104,43 @@ const trustBadges = [
   { icon: Building2, label: "DPDP Compliant", desc: "Programs aligned with India's Digital Personal Data Protection Act, 2023" },
 ];
 
-// Tech partners — text wordmarks for now. Replace with <Image src="/logos/aws.svg" />
-// once you drop logo SVGs into public/logos/.
 const techPartners = [
-  "AWS",
-  "Microsoft Azure",
-  "Google Cloud",
-  "Snowflake",
-  "Databricks",
-  "Power BI",
-  "Tableau",
-  "Looker",
-  "Microsoft 365",
-  "Google Workspace",
-  "Kubernetes",
-  "Terraform",
-  "MongoDB",
-  "PostgreSQL",
-  "Docker",
-  "GitHub",
+  "AWS", "Microsoft Azure", "Google Cloud", "Snowflake", "Databricks",
+  "Power BI", "Tableau", "Looker", "Microsoft 365", "Google Workspace",
+  "Kubernetes", "Terraform", "MongoDB", "PostgreSQL", "Docker", "GitHub",
 ];
+
+// ─── CAPABILITY CARD ──────────────────────────────────────────────────────────
+function CapabilityCard({ c, index }: { c: typeof capabilities[0]; index: number }) {
+  return (
+    <Link
+      href={c.href}
+      className="group relative flex flex-col gap-5 bg-paper p-8 transition-colors hover:bg-paper-soft md:p-10"
+    >
+      <span className="font-display text-xs tracking-widest text-ink-300">
+        0{index + 1}
+      </span>
+      <h3 className="font-display text-2xl font-light leading-tight tracking-tight text-ink-900">
+        {c.title}
+      </h3>
+      <p className="flex-1 text-base leading-relaxed text-ink-500">
+        {c.desc}
+      </p>
+      <span className="inline-flex items-center gap-2 pt-4 text-sm font-medium text-emerald-700 transition-all group-hover:gap-3">
+        Explore practice
+        <ArrowRight className="h-4 w-4" />
+      </span>
+    </Link>
+  );
+}
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function AboutPage() {
   return (
     <main className="bg-paper text-ink-900">
-      {/* ═══ HERO — Dark with kinetic typography backdrop ═══ */}
+      {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden bg-ink-900 text-paper">
-        {/* Vertical word marquee backdrop (3 columns, alternating direction) */}
         <div className="pointer-events-none absolute inset-0 grid grid-cols-2 md:grid-cols-3">
           <VerticalWordMarquee
             words={["ENGINEER", "BUILD", "DESIGN", "MIGRATE", "DELIVER", "SECURE"]}
@@ -151,16 +159,11 @@ export default function AboutPage() {
             duration={42}
           />
         </div>
-
-        {/* Top/bottom gradient fades so words emerge and disappear softly */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-40 bg-gradient-to-b from-ink-900 via-ink-900/80 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-t from-ink-900 via-ink-900/90 to-transparent" />
-        {/* Center radial glow for focal point */}
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(31,140,112,0.15),transparent_65%)]" />
-        {/* Top hairline */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
 
-        {/* Foreground */}
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
             <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-ink-900/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200 backdrop-blur-sm">
@@ -170,20 +173,17 @@ export default function AboutPage() {
               </span>
               About TechShield Analytics
             </div>
-
             <h1 className="font-display text-5xl font-light leading-[1.02] tracking-tight md:text-7xl lg:text-[5.5rem]">
               We build the{" "}
               <span className="italic text-emerald-300">foundations</span>
               <br />
               enterprises rely on.
             </h1>
-
             <p className="mt-10 max-w-2xl text-lg leading-relaxed text-paper/75 md:text-xl">
               A Delhi-based technology firm building cloud, data, AI and audit
               programs for enterprises and growth-stage teams.
               Engineering-led, security-first, outcome-obsessed.
             </p>
-
             <div className="mt-12 flex flex-wrap items-center gap-4">
               <Link
                 href="/services"
@@ -208,13 +208,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-2 gap-px bg-ink-100 lg:grid-cols-4">
             {stats.map((s) => (
-              <div
-                key={s.v}
-                className="flex flex-col gap-3 bg-paper-soft px-6 py-8 md:px-8 md:py-10"
-              >
-                <span className="font-display text-4xl font-light leading-none text-emerald-700 md:text-5xl">
-                  {s.k}
-                </span>
+              <div key={s.v} className="flex flex-col gap-3 bg-paper-soft px-6 py-8 md:px-8 md:py-10">
+                <span className="font-display text-4xl font-light leading-none text-emerald-700 md:text-5xl">{s.k}</span>
                 <span className="text-sm leading-snug text-ink-700">{s.v}</span>
               </div>
             ))}
@@ -232,12 +227,9 @@ export default function AboutPage() {
             </div>
             <h2 className="font-display text-4xl font-light leading-[1.1] tracking-tight text-ink-900 md:text-5xl">
               Engineering as craft.{" "}
-              <span className="italic text-emerald-700">
-                Consulting as conversation.
-              </span>
+              <span className="italic text-emerald-700">Consulting as conversation.</span>
             </h2>
           </div>
-
           <div className="lg:col-span-7 lg:col-start-6">
             <div className="space-y-6 text-lg leading-relaxed text-ink-700">
               <p>
@@ -249,9 +241,7 @@ export default function AboutPage() {
               <p>
                 We work across cloud, data engineering, artificial
                 intelligence, audit and SaaS — but our real product is{" "}
-                <span className="text-ink-900">
-                  engineering judgment applied to business problems
-                </span>
+                <span className="text-ink-900">engineering judgment applied to business problems</span>
                 . Whether that means designing your cloud landing zone, running
                 a VAPT against your production stack, or building the data
                 platform your analytics team has been waiting two years for.
@@ -266,7 +256,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ═══ /03 OUR STORY — Timeline ═══ */}
+      {/* ═══ /03 OUR STORY ═══ */}
       <section className="border-y border-ink-100 bg-paper-soft py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 grid gap-8 lg:grid-cols-12">
@@ -277,10 +267,7 @@ export default function AboutPage() {
               </div>
               <h2 className="font-display text-4xl font-light leading-[1.1] tracking-tight text-ink-900 md:text-5xl">
                 From a single audit project to a{" "}
-                <span className="italic text-emerald-700">
-                  multi-practice firm
-                </span>
-                .
+                <span className="italic text-emerald-700">multi-practice firm</span>.
               </h2>
             </div>
             <p className="self-end text-lg leading-relaxed text-ink-700 lg:col-span-6 lg:col-start-7">
@@ -289,32 +276,16 @@ export default function AboutPage() {
               data, AI, audit and SaaS for clients across India and beyond.
             </p>
           </div>
-
-          {/* Timeline */}
           <div className="relative">
-            {/* Vertical line */}
             <div className="absolute bottom-2 left-3 top-2 w-px bg-ink-100 md:left-[10rem]" />
-
             <div className="space-y-12">
               {milestones.map((m, i) => (
-                <div
-                  key={i}
-                  className="relative grid gap-4 pl-10 md:grid-cols-[10rem_1fr] md:gap-12 md:pl-0"
-                >
-                  {/* Year/phase */}
-                  <div className="font-display text-base uppercase tracking-[0.18em] text-emerald-700">
-                    {m.year}
-                  </div>
-
-                  {/* Content with dot */}
+                <div key={i} className="relative grid gap-4 pl-10 md:grid-cols-[10rem_1fr] md:gap-12 md:pl-0">
+                  <div className="font-display text-base uppercase tracking-[0.18em] text-emerald-700">{m.year}</div>
                   <div className="relative">
                     <span className="absolute left-[-2.05rem] top-2 block h-3 w-3 rounded-full border-2 border-emerald-700 bg-paper-soft md:left-[-3.75rem]" />
-                    <h3 className="font-display text-2xl font-light leading-snug text-ink-900">
-                      {m.title}
-                    </h3>
-                    <p className="mt-2 text-base leading-relaxed text-ink-500">
-                      {m.desc}
-                    </p>
+                    <h3 className="font-display text-2xl font-light leading-snug text-ink-900">{m.title}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-ink-500">{m.desc}</p>
                   </div>
                 </div>
               ))}
@@ -323,7 +294,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ═══ /04 PRINCIPLES — Dark manifesto ═══ */}
+      {/* ═══ /04 PRINCIPLES ═══ */}
       <section className="relative overflow-hidden bg-ink-900 text-paper">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -334,7 +305,6 @@ export default function AboutPage() {
           }}
         />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(31,140,112,0.15),transparent_60%)]" />
-
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="mb-16">
             <div className="mb-4 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-emerald-200">
@@ -343,36 +313,25 @@ export default function AboutPage() {
             </div>
             <h2 className="font-display text-4xl font-light leading-[1.1] tracking-tight text-paper md:text-6xl">
               How we work.{" "}
-              <span className="italic text-emerald-300">
-                And what we won&apos;t compromise on.
-              </span>
+              <span className="italic text-emerald-300">And what we won&apos;t compromise on.</span>
             </h2>
           </div>
-
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {principles.map((p) => (
-              <article
-                key={p.n}
-                className="group relative border-l border-emerald-500/20 pl-6 transition-colors hover:border-emerald-300"
-              >
-                <span className="font-display text-sm text-emerald-300/80">
-                  /{p.n}
-                </span>
-                <h3 className="mt-3 font-display text-2xl font-light leading-snug text-paper">
-                  {p.title}
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-paper/65">
-                  {p.body}
-                </p>
+              <article key={p.n} className="group relative border-l border-emerald-500/20 pl-6 transition-colors hover:border-emerald-300">
+                <span className="font-display text-sm text-emerald-300/80">/{p.n}</span>
+                <h3 className="mt-3 font-display text-2xl font-light leading-snug text-paper">{p.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-paper/65">{p.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ /05 CAPABILITIES ═══ */}
+      {/* ═══ /05 CAPABILITIES — 3 + 2 layout, no ghost cell ═══ */}
       <section className="border-b border-ink-100 bg-paper py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
+
           <div className="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div className="max-w-xl">
               <div className="mb-4 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-ink-500">
@@ -393,29 +352,20 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          <div className="grid gap-px bg-ink-100 md:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((c, i) => (
-              <Link
-                key={c.title}
-                href={c.href}
-                className="group relative flex flex-col gap-5 bg-paper p-8 transition-colors hover:bg-paper-soft md:p-10"
-              >
-                <span className="font-display text-xs tracking-widest text-ink-300">
-                  0{i + 1}
-                </span>
-                <h3 className="font-display text-2xl font-light leading-tight tracking-tight text-ink-900">
-                  {c.title}
-                </h3>
-                <p className="flex-1 text-base leading-relaxed text-ink-500">
-                  {c.desc}
-                </p>
-                <span className="inline-flex items-center gap-2 pt-4 text-sm font-medium text-emerald-700 transition-all group-hover:gap-3">
-                  Explore practice
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
+          {/* Row 1 — 3 cards, full width */}
+          <div className="grid grid-cols-1 gap-px bg-ink-100 md:grid-cols-3">
+            {capabilities.slice(0, 3).map((c, i) => (
+              <CapabilityCard key={c.title} c={c} index={i} />
             ))}
           </div>
+
+          {/* Row 2 — 2 cards, centred to match 2/3 width of row above */}
+          <div className="mt-px grid grid-cols-1 gap-px bg-ink-100 md:grid-cols-2 md:w-2/3">
+            {capabilities.slice(3).map((c, i) => (
+              <CapabilityCard key={c.title} c={c} index={i + 3} />
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -428,19 +378,13 @@ export default function AboutPage() {
           </div>
           <h2 className="font-display text-4xl font-light leading-[1.1] tracking-tight text-ink-900 md:text-5xl">
             Standards we hold to.{" "}
-            <span className="italic text-emerald-700">
-              Platforms we run on.
-            </span>
+            <span className="italic text-emerald-700">Platforms we run on.</span>
           </h2>
         </div>
 
-        {/* Trust badges grid */}
         <div className="mb-16 grid gap-px bg-ink-100 md:grid-cols-2 lg:grid-cols-4">
           {trustBadges.map((b) => (
-            <div
-              key={b.label}
-              className="flex flex-col gap-4 bg-paper p-8 transition-colors hover:bg-paper-soft"
-            >
+            <div key={b.label} className="flex flex-col gap-4 bg-paper p-8 transition-colors hover:bg-paper-soft">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-700/[0.06] text-emerald-700 ring-1 ring-emerald-500/30">
                 <b.icon className="h-6 w-6" strokeWidth={1.5} />
               </div>
@@ -450,7 +394,6 @@ export default function AboutPage() {
           ))}
         </div>
 
-        {/* Tech partner marquee */}
         <div className="border-t border-ink-100 pt-12">
           <p className="mb-10 text-center text-xs uppercase tracking-[0.22em] text-ink-500">
             Technology alliances · Platforms we engineer across
@@ -459,14 +402,11 @@ export default function AboutPage() {
             <div className="flex w-max animate-scroll items-center">
               {[...techPartners, ...techPartners].map((p, i) => (
                 <div key={i} className="flex shrink-0 items-center">
-                  <span className="whitespace-nowrap px-10 font-display text-xl italic text-ink-500">
-                    {p}
-                  </span>
+                  <span className="whitespace-nowrap px-10 font-display text-xl italic text-ink-500">{p}</span>
                   <span className="h-1 w-1 shrink-0 rounded-full bg-ink-300" />
                 </div>
               ))}
             </div>
-            {/* Edge fades */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-paper to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-paper to-transparent" />
           </div>
