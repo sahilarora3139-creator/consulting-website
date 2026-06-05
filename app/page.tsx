@@ -1,6 +1,7 @@
 import FadeIn from "./components/FadeIn";
 import Counter from "./components/Counter";
 import TechStrip from "./components/TechStrip";
+import ArchitectureBuilder from "./components/ArchitectureBuilder";
 
 export default function Home() {
   return (
@@ -61,6 +62,7 @@ export default function Home() {
         </section>
       </FadeIn>
       <TechStrip />
+      <ArchitectureBuilder />
 
 
       {/* SERVICES */}
